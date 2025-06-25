@@ -1,9 +1,11 @@
+// src/parser/AST.h
 #ifndef AST_H
 #define AST_H
 
 #include <vector>
 #include <string>
 #include <memory> // Para std::unique_ptr
+#include <utility> // Para std::move en constructores
 
 // Enumeración para los tipos de nodos AST
 enum class ASTNodeType {
@@ -12,6 +14,7 @@ enum class ASTNodeType {
     VariableDeclaration,
     AssignmentStatement,
     BinaryExpression,
+    UnaryExpression,
     Literal,
     Identifier,
     IfStatement,
@@ -19,26 +22,26 @@ enum class ASTNodeType {
     ReturnStatement,
     FunctionCall,
     PrintStatement, // Para printf
-    BlockStatement // Para bloques de código {}
+    BlockStatement  // Para bloques de código {}
 };
 
 // Clase base para todos los nodos del AST
 class ASTNode {
 public:
     ASTNodeType type;
-    std::vector<std::unique_ptr<ASTNode>> children;
 
-    explicit ASTNode(ASTNodeType type) : type(type) {}
+    explicit ASTNode(ASTNodeType type);
     virtual ~ASTNode() = default; // Destructor virtual para asegurar la correcta limpieza
-
-    // Método virtual para aceptar un visitante (útil para la traversía del AST)
-    // virtual void accept(ASTVisitor& visitor) = 0; // Se podría añadir un patrón Visitor
 };
 
 // Nodo para el programa completo (raíz del AST)
 class ProgramNode : public ASTNode {
 public:
-    ProgramNode() : ASTNode(ASTNodeType::Program) {}
+    // Los hijos ProgramNode::children serán FunctionDeclarationNode y StatementNode (globales o main)
+    std::vector<std::unique_ptr<ASTNode>> functionDeclarations; // Aquí almacenaremos las funciones
+    std::vector<std::unique_ptr<ASTNode>> statements; // Y aquí las sentencias globales/main
+
+    ProgramNode(); // Constructor declarado
 };
 
 // Nodo para una declaración de función
@@ -47,9 +50,11 @@ public:
     std::string name;
     std::string returnType; // "int", "void", etc.
     std::vector<std::pair<std::string, std::string>> parameters; // Tipo, Nombre
+    std::unique_ptr<ASTNode> body; // El cuerpo de la función es un BlockStatementNode
 
-    FunctionDeclarationNode(const std::string& name, const std::string& returnType)
-        : ASTNode(ASTNodeType::FunctionDeclaration), name(name), returnType(returnType) {}
+    FunctionDeclarationNode(const std::string& name, const std::string& returnType,
+                            std::vector<std::pair<std::string, std::string>> params,
+                            std::unique_ptr<ASTNode> body); // Constructor declarado
 };
 
 // Nodo para una declaración de variable
@@ -59,8 +64,7 @@ public:
     std::string variableName;
     std::unique_ptr<ASTNode> initializer; // Opcional, si se inicializa
 
-    VariableDeclarationNode(const std::string& typeName, const std::string& variableName, std::unique_ptr<ASTNode> init = nullptr)
-        : ASTNode(ASTNodeType::VariableDeclaration), typeName(typeName), variableName(variableName), initializer(std::move(init)) {}
+    VariableDeclarationNode(const std::string& typeName, const std::string& variableName, std::unique_ptr<ASTNode> init = nullptr); // Constructor declarado
 };
 
 // Nodo para una asignación
@@ -69,8 +73,7 @@ public:
     std::string identifierName;
     std::unique_ptr<ASTNode> expression;
 
-    AssignmentStatementNode(const std::string& identifier, std::unique_ptr<ASTNode> expr)
-        : ASTNode(ASTNodeType::AssignmentStatement), identifierName(identifier), expression(std::move(expr)) {}
+    AssignmentStatementNode(const std::string& identifier, std::unique_ptr<ASTNode> expr); // Constructor declarado
 };
 
 // Nodo para una expresión binaria (ej. a + b, x == y)
@@ -80,8 +83,16 @@ public:
     std::unique_ptr<ASTNode> right;
     std::string op; // Operador: "+", "-", "*", "/", "=", "==", "<", ">", etc.
 
-    BinaryExpressionNode(std::unique_ptr<ASTNode> l, std::unique_ptr<ASTNode> r, const std::string& op)
-        : ASTNode(ASTNodeType::BinaryExpression), left(std::move(l)), right(std::move(r)), op(op) {}
+    BinaryExpressionNode(std::unique_ptr<ASTNode> l, std::unique_ptr<ASTNode> r, const std::string& op); // Constructor declarado
+};
+
+// Nodo para una expresión unaria (ej. -x, !cond)
+class UnaryExpressionNode : public ASTNode {
+public:
+    std::string op; // Operador unario: "-", "!"
+    std::unique_ptr<ASTNode> operand; // El operando de la expresión unaria
+
+    UnaryExpressionNode(const std::string& op, std::unique_ptr<ASTNode> operand); // Constructor declarado
 };
 
 // Nodo para un literal (entero, cadena)
@@ -89,7 +100,7 @@ class LiteralNode : public ASTNode {
 public:
     std::string value; // El valor del literal (ej. "10", "\"hola\"")
     // Considerar un campo para el tipo de literal (INT, STRING) si es necesario
-    LiteralNode(const std::string& val) : ASTNode(ASTNodeType::Literal), value(val) {}
+    LiteralNode(const std::string& val); // Constructor declarado
 };
 
 // Nodo para un identificador
@@ -97,7 +108,7 @@ class IdentifierNode : public ASTNode {
 public:
     std::string name;
 
-    IdentifierNode(const std::string& name) : ASTNode(ASTNodeType::Identifier), name(name) {}
+    IdentifierNode(const std::string& name); // Constructor declarado
 };
 
 // Nodo para una declaración if
@@ -107,8 +118,7 @@ public:
     std::unique_ptr<ASTNode> thenBlock; // Bloque de código si la condición es verdadera
     std::unique_ptr<ASTNode> elseBlock; // Bloque de código si la condición es falsa (opcional)
 
-    IfStatementNode(std::unique_ptr<ASTNode> cond, std::unique_ptr<ASTNode> thenB, std::unique_ptr<ASTNode> elseB = nullptr)
-        : ASTNode(ASTNodeType::IfStatement), condition(std::move(cond)), thenBlock(std::move(thenB)), elseBlock(std::move(elseB)) {}
+    IfStatementNode(std::unique_ptr<ASTNode> cond, std::unique_ptr<ASTNode> thenB, std::unique_ptr<ASTNode> elseB = nullptr); // Constructor declarado
 };
 
 // Nodo para una declaración for
@@ -119,8 +129,7 @@ public:
     std::unique_ptr<ASTNode> increment;      // Expresión de incremento/decremento (ej. i++)
     std::unique_ptr<ASTNode> body;           // Cuerpo del bucle
 
-    ForStatementNode(std::unique_ptr<ASTNode> init, std::unique_ptr<ASTNode> cond, std::unique_ptr<ASTNode> inc, std::unique_ptr<ASTNode> bd)
-        : ASTNode(ASTNodeType::ForStatement), initialization(std::move(init)), condition(std::move(cond)), increment(std::move(inc)), body(std::move(bd)) {}
+    ForStatementNode(std::unique_ptr<ASTNode> init, std::unique_ptr<ASTNode> cond, std::unique_ptr<ASTNode> inc, std::unique_ptr<ASTNode> bd); // Constructor declarado
 };
 
 // Nodo para una declaración return
@@ -128,8 +137,7 @@ class ReturnStatementNode : public ASTNode {
 public:
     std::unique_ptr<ASTNode> expression; // Expresión a retornar (opcional)
 
-    ReturnStatementNode(std::unique_ptr<ASTNode> expr = nullptr)
-        : ASTNode(ASTNodeType::ReturnStatement), expression(std::move(expr)) {}
+    ReturnStatementNode(std::unique_ptr<ASTNode> expr = nullptr); // Constructor declarado
 };
 
 // Nodo para una llamada a función (ej. printf("hello");)
@@ -138,24 +146,24 @@ public:
     std::string functionName;
     std::vector<std::unique_ptr<ASTNode>> arguments;
 
-    FunctionCallNode(const std::string& name) : ASTNode(ASTNodeType::FunctionCall), functionName(name) {}
+    FunctionCallNode(const std::string& name, std::vector<std::unique_ptr<ASTNode>> args = {}); // Constructor declarado
 };
 
-// Nodo específico para la función printf (puede ser una FunctionCallNode, pero es útil tener una distinción si se maneja de forma especial)
+// Nodo específico para la función printf
 class PrintStatementNode : public ASTNode {
 public:
     std::string formatString;
     std::vector<std::unique_ptr<ASTNode>> arguments; // Argumentos después de la cadena de formato
 
-    PrintStatementNode(const std::string& format) : ASTNode(ASTNodeType::PrintStatement), formatString(format) {}
+    PrintStatementNode(const std::string& format, std::vector<std::unique_ptr<ASTNode>> args = {}); // Constructor declarado
 };
 
 // Nodo para un bloque de sentencias (ej. el cuerpo de una función o un bloque if/else)
 class BlockStatementNode : public ASTNode {
 public:
-    BlockStatementNode() : ASTNode(ASTNodeType::BlockStatement) {}
-    // Las sentencias están en `children`
-};
+    std::vector<std::unique_ptr<ASTNode>> statements; // Contiene las sentencias dentro del bloque
 
+    BlockStatementNode(std::vector<std::unique_ptr<ASTNode>> stmts = {}); // Constructor declarado
+};
 
 #endif // AST_H

@@ -1,57 +1,58 @@
+// src/semantic_analyzer/SymbolTable.cpp
 #include "SymbolTable.h"
+#include <algorithm> // Para std::reverse
+#include <iostream> // Para depuración
 
-// Constructor: Inicializa la tabla de símbolos con un scope global.
 SymbolTable::SymbolTable() {
-    enterScope(); // El primer scope es el global
+    enterScope(); // Entrar en el ámbito global por defecto al construir la tabla
 }
 
-// Entra en un nuevo scope.
 void SymbolTable::enterScope() {
-    scopes.emplace_back(); // Añade un nuevo mapa vacío a la pila de scopes
+    scopes.emplace_back(); // Añadir un nuevo mapa (ámbito) al vector
 }
 
-// Sale del scope actual.
 void SymbolTable::exitScope() {
     if (!scopes.empty()) {
-        scopes.pop_back(); // Elimina el scope superior de la pila
+        scopes.pop_back(); // Eliminar el ámbito actual
+    } else {
+        // Esto no debería ocurrir en un programa bien formado
+        std::cerr << "Error: Intentando salir de un ámbito vacío." << std::endl;
     }
-    // Podrías añadir un error si se intenta salir de un scope vacío,
-    // pero en un uso correcto, esto no debería ocurrir.
 }
 
-// Añade un símbolo al scope actual.
-bool SymbolTable::addSymbol(const std::string& name, std::unique_ptr<Symbol> symbol) {
+// Implementación de addSymbol: Ahora toma std::unique_ptr<Symbol>
+bool SymbolTable::addSymbol(std::unique_ptr<Symbol> symbol) {
     if (scopes.empty()) {
-        // Esto no debería suceder si siempre se entra en un scope al inicio.
+        std::cerr << "Error: No hay ámbitos para añadir símbolos." << std::endl;
         return false;
     }
-    // Comprueba si el símbolo ya existe en el scope actual
-    if (scopes.back().count(name)) {
-        return false; // Símbolo ya existe en el scope actual
+    std::string name = symbol->name; // Obtener el nombre del símbolo
+    if (scopes.back().count(name) > 0) {
+        // Símbolo ya existe en el ámbito actual
+        return false;
     }
-    scopes.back()[name] = std::move(symbol);
+    scopes.back()[name] = std::move(symbol); // Mover el unique_ptr al mapa
     return true;
 }
 
-// Busca un símbolo en el scope actual y en los scopes padres.
-Symbol* SymbolTable::lookupSymbol(const std::string& name) {
-    // Itera desde el scope actual hacia arriba (hacia el scope global)
-    for (auto it = scopes.rbegin(); it != scopes.rend(); ++it) {
-        if (it->count(name)) {
-            return it->at(name).get(); // Devuelve el puntero crudo al Symbol
-        }
-    }
-    return nullptr; // Símbolo no encontrado
-}
-
-// Busca un símbolo solo en el scope actual.
 Symbol* SymbolTable::lookupSymbolInCurrentScope(const std::string& name) {
     if (scopes.empty()) {
         return nullptr;
     }
-    auto& currentScope = scopes.back();
-    if (currentScope.count(name)) {
-        return currentScope.at(name).get();
+    auto it = scopes.back().find(name);
+    if (it != scopes.back().end()) {
+        return it->second.get(); // Devolver el puntero raw
+    }
+    return nullptr;
+}
+
+Symbol* SymbolTable::lookupSymbol(const std::string& name) {
+    // Buscar desde el ámbito actual hacia el global
+    for (auto it = scopes.rbegin(); it != scopes.rend(); ++it) {
+        auto symbolIt = it->find(name);
+        if (symbolIt != it->end()) {
+            return symbolIt->second.get();
+        }
     }
     return nullptr;
 }

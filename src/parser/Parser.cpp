@@ -1,8 +1,11 @@
+// src/parser/Parser.cpp
 #include "Parser.h"
+#include <iostream> // Para depuración, si es necesario
+#include <utility> // Para std::move en constructores
 
-// Constructor
-Parser::Parser(const std::vector<Token>& tokens)
-    : tokens(tokens), currentTokenIndex(0) {}
+// Constructor - Ahora recibe ErrorHandler
+Parser::Parser(const std::vector<Token>& tokens, ErrorHandler& errorHandler)
+    : tokens(tokens), currentTokenIndex(0), errorHandler(errorHandler) {}
 
 // Mira el token en la posición actual + offset sin avanzar
 Token Parser::peek(int offset) {
@@ -34,7 +37,8 @@ Token Parser::expect(TokenType type, const std::string& errorMessage) {
     if (peek().type == type) {
         return consume();
     }
-    ErrorHandler::reportError(errorMessage, peek().line, peek().column);
+    // CORRECCIÓN AQUÍ: Orden de argumentos (mensaje, línea, columna)
+    errorHandler.reportError(errorMessage, peek().line, peek().column);
     // Para recuperación de errores, se podría avanzar o insertar un token fantasma
     // Por simplicidad, por ahora simplemente devolvemos un token de error.
     return Token(TokenType::UNKNOWN, "", peek().line, peek().column);
@@ -62,21 +66,21 @@ std::unique_ptr<ASTNode> Parser::parseProgram() {
         // Asumimos que una declaración de tipo seguida por un identificador
         // es el inicio de una declaración de función o de variable global.
         if (peek().type == TokenType::KEYWORD_INT || peek().type == TokenType::KEYWORD_VOID) {
-            Token typeToken = peek();
+            // Lookahead para distinguir entre declaración de función y de variable global
             if (peek(1).type == TokenType::IDENTIFIER) {
-                // Verificar si es una declaración de función o variable
-                // Esto es una simplificación, en un compilador completo se necesitaría más "lookahead"
                 if (peek(2).type == TokenType::LPAREN) { // Parece una función (tipo ID LPAREN)
-                    programNode->children.push_back(parseFunctionDeclaration());
+                    programNode->functionDeclarations.push_back(parseFunctionDeclaration());
                 } else { // Asumimos declaración de variable global
-                    programNode->children.push_back(parseDeclarationStatement());
+                    programNode->statements.push_back(parseDeclarationStatement());
                 }
             } else {
-                ErrorHandler::reportError("Identificador esperado después del tipo.", typeToken.line, typeToken.column);
+                // CORRECCIÓN AQUÍ: Orden de argumentos
+                errorHandler.reportError("Identificador esperado después del tipo.", peek().line, peek().column);
                 consume(); // Intentar recuperarse avanzando
             }
         } else {
-            ErrorHandler::reportError("Declaración de función o variable global esperada.", peek().line, peek().column);
+            // CORRECCIÓN AQUÍ: Orden de argumentos
+            errorHandler.reportError("Declaración de función o variable global esperada.", peek().line, peek().column);
             consume(); // Intentar recuperarse
         }
     }
@@ -91,15 +95,14 @@ std::unique_ptr<ASTNode> Parser::parseFunctionDeclaration() {
     Token functionName = expect(TokenType::IDENTIFIER, "Se esperaba un nombre de función.");
     if (functionName.type == TokenType::UNKNOWN) return nullptr;
 
-    auto funcDecl = std::make_unique<FunctionDeclarationNode>(functionName.value, returnType.value);
+    // Inicializar funcDecl con parámetros vacíos y cuerpo nulo por ahora
+    auto funcDecl = std::make_unique<FunctionDeclarationNode>(functionName.value, returnType.value, std::vector<std::pair<std::string, std::string>>{}, nullptr);
 
     expect(TokenType::LPAREN, "Se esperaba '(' después del nombre de la función.");
-    // Aquí iría el parseo de parámetros, por ahora lo simplificamos
+    // Aquí iría el parseo de parámetros
     while (peek().type != TokenType::RPAREN && peek().type != TokenType::END_OF_FILE) {
-        // Ejemplo simple de parseo de parámetros: int a, int b
-        // Se esperaría un tipo y luego un identificador
-        if (peek().type == TokenType::KEYWORD_INT) {
-            Token paramType = consume(); // int
+        if (peek().type == TokenType::KEYWORD_INT || peek().type == TokenType::KEYWORD_VOID) { // Permite void también para parámetros
+            Token paramType = consume();
             Token paramName = expect(TokenType::IDENTIFIER, "Se esperaba un nombre de parámetro.");
             if (paramName.type != TokenType::UNKNOWN) {
                 funcDecl->parameters.push_back({paramType.value, paramName.value});
@@ -107,15 +110,13 @@ std::unique_ptr<ASTNode> Parser::parseFunctionDeclaration() {
             if (peek().type == TokenType::COMMA) {
                 consume(); // Consumir la coma
             } else if (peek().type != TokenType::RPAREN) {
-                ErrorHandler::reportError("Se esperaba ',' o ')' después del parámetro.", peek().line, peek().column);
-                // Recuperación de error: avanzar para evitar bucle infinito
+                // CORRECCIÓN AQUÍ: Orden de argumentos
+                errorHandler.reportError("Se esperaba ',' o ')' después del parámetro.", peek().line, peek().column);
                 if (peek().type != TokenType::RPAREN) consume();
             }
         } else {
-            // Si el token no es un tipo de parámetro esperado, asumimos que no hay más parámetros válidos
-            // y reportamos un error o intentamos consumir para no quedarnos atascados.
-            ErrorHandler::reportError("Tipo de parámetro esperado (ej. 'int').", peek().line, peek().column);
-            // Intentar avanzar para no entrar en bucle infinito
+            // CORRECCIÓN AQUÍ: Orden de argumentos
+            errorHandler.reportError("Tipo de parámetro esperado (ej. 'int').", peek().line, peek().column);
             if (peek().type != TokenType::RPAREN) {
                  consume();
             }
@@ -123,9 +124,9 @@ std::unique_ptr<ASTNode> Parser::parseFunctionDeclaration() {
     }
     expect(TokenType::RPAREN, "Se esperaba ')' después de la lista de parámetros.");
 
-    // Parsear el cuerpo de la función (bloque de sentencias)
-    funcDecl->children.push_back(parseBlockStatement());
-    if (!funcDecl->children.back()) return nullptr; // Si el bloque es nulo, hubo un error
+    // Parsear el cuerpo de la función (bloque de sentencias) y asignarlo al miembro 'body'
+    funcDecl->body = parseBlockStatement();
+    if (!funcDecl->body) return nullptr; // Si el bloque es nulo, hubo un error
 
     return funcDecl;
 }
@@ -135,25 +136,26 @@ std::unique_ptr<ASTNode> Parser::parseBlockStatement() {
     expect(TokenType::LBRACE, "Se esperaba '{' para el bloque de código.");
     if (peek().type == TokenType::UNKNOWN) return nullptr; // Error de recuperación
 
-    auto block = std::make_unique<BlockStatementNode>();
+    std::vector<std::unique_ptr<ASTNode>> statementsInBlock;
 
     while (peek().type != TokenType::RBRACE && !isAtEnd()) {
-        if (peek().type == TokenType::KEYWORD_INT) { // Declaración de variable local
-            block->children.push_back(parseDeclarationStatement());
+        if (peek().type == TokenType::KEYWORD_INT || peek().type == TokenType::KEYWORD_VOID) { // Declaración de variable local
+            statementsInBlock.push_back(parseDeclarationStatement());
         } else { // Otra sentencia
-            block->children.push_back(parseStatement());
+            statementsInBlock.push_back(parseStatement());
         }
-        if (!block->children.back()) { // Si el parseo de la sentencia falló
+        if (!statementsInBlock.back()) { // Si el parseo de la sentencia falló
             // Intentar avanzar para recuperarse del error y no entrar en bucle infinito
-            // Esto es una recuperación básica. Una más robusta implicaría más lógica.
             if (!isAtEnd() && peek().type != TokenType::RBRACE) {
-                consume();
+                consume(); // Solo consumir si no es RBRACE o EOF para evitar bucle
+            } else {
+                break; // Salir si estamos al final o encontramos RBRACE
             }
         }
     }
 
     expect(TokenType::RBRACE, "Se esperaba '}' para cerrar el bloque de código.");
-    return block;
+    return std::make_unique<BlockStatementNode>(std::move(statementsInBlock));
 }
 
 // <statement> ::= <assignmentStatement> ";"
@@ -161,43 +163,49 @@ std::unique_ptr<ASTNode> Parser::parseBlockStatement() {
 //               | <forStatement>
 //               | <returnStatement> ";"
 //               | <printStatement> ";"
-//               | <functionCall> ";" (si no es printf)
+//               | <functionCall> ";"
+//               | <blockStatement>
 std::unique_ptr<ASTNode> Parser::parseStatement() {
-    switch (peek().type) {
-        case TokenType::IDENTIFIER: {
-            if (peek(1).type == TokenType::ASSIGN) { // Asignación
-                auto assign = parseAssignmentStatement();
-                expect(TokenType::SEMICOLON, "Se esperaba ';' después de la sentencia de asignación.");
-                return assign;
-            } else if (peek(1).type == TokenType::LPAREN) { // Llamada a función (no printf)
-                auto funcCall = parseFunctionCall();
-                expect(TokenType::SEMICOLON, "Se esperaba ';' después de la llamada a función.");
-                return funcCall;
-            }
-            break;
-        }
-        case TokenType::KEYWORD_IF:
-            return parseIfStatement();
-        case TokenType::KEYWORD_FOR:
-            return parseForStatement();
-        case TokenType::KEYWORD_RETURN: {
-            auto ret = parseReturnStatement();
-            expect(TokenType::SEMICOLON, "Se esperaba ';' después de la sentencia return.");
-            return ret;
-        }
-        case TokenType::KEYWORD_PRINTF: {
-            auto print = parsePrintStatement();
-            expect(TokenType::SEMICOLON, "Se esperaba ';' después de la sentencia printf.");
-            return print;
-        }
-        case TokenType::LBRACE: // Un bloque de sentencias independiente
-            return parseBlockStatement();
-        default:
-            ErrorHandler::reportError("Sentencia inesperada.", peek().line, peek().column);
-            consume(); // Intenta recuperarse
-            return nullptr;
+    // Si la sentencia actual es un bloque, llamarlo directamente
+    if (peek().type == TokenType::LBRACE) {
+        return parseBlockStatement();
     }
-    ErrorHandler::reportError("Sentencia inválida o incompleta.", peek().line, peek().column);
+
+    std::unique_ptr<ASTNode> stmt = nullptr;
+    TokenType currentType = peek().type;
+    TokenType nextType = peek(1).type;
+
+    if (currentType == TokenType::IDENTIFIER) {
+        if (nextType == TokenType::ASSIGN) { // Asignación
+            stmt = parseAssignmentStatement();
+        } else if (nextType == TokenType::LPAREN) { // Llamada a función
+            stmt = parseFunctionCall();
+        }
+    } else if (currentType == TokenType::KEYWORD_IF) {
+        stmt = parseIfStatement();
+    } else if (currentType == TokenType::KEYWORD_FOR) {
+        stmt = parseForStatement();
+    } else if (currentType == TokenType::KEYWORD_RETURN) {
+        stmt = parseReturnStatement();
+    } else if (currentType == TokenType::KEYWORD_PRINTF) {
+        stmt = parsePrintStatement();
+    }
+
+    if (stmt) {
+        // Las sentencias como if, for, y bloques no terminan con ';'.
+        // Solo las sentencias de expresión (asignación, llamada a función, return, print) lo hacen.
+        if (stmt->type == ASTNodeType::AssignmentStatement ||
+            stmt->type == ASTNodeType::ReturnStatement ||
+            stmt->type == ASTNodeType::FunctionCall ||
+            stmt->type == ASTNodeType::VariableDeclaration || // Si la declaración se maneja aquí
+            stmt->type == ASTNodeType::PrintStatement) {
+            expect(TokenType::SEMICOLON, "Se esperaba ';' después de la sentencia.");
+        }
+        return stmt;
+    }
+
+    // CORRECCIÓN AQUÍ: Orden de argumentos
+    errorHandler.reportError("Sentencia inválida o incompleta o token inesperado.", peek().line, peek().column);
     consume(); // Intenta recuperarse
     return nullptr;
 }
@@ -268,7 +276,7 @@ std::unique_ptr<ASTNode> Parser::parseForStatement() {
 
     // Inicialización del bucle for
     std::unique_ptr<ASTNode> initialization = nullptr;
-    if (peek().type == TokenType::KEYWORD_INT) { // Declaración
+    if (peek().type == TokenType::KEYWORD_INT || peek().type == TokenType::KEYWORD_VOID) { // Declaración
         initialization = parseDeclarationStatement(); // consume el ';'
     } else if (peek().type == TokenType::IDENTIFIER && peek(1).type == TokenType::ASSIGN) { // Asignación
         initialization = parseAssignmentStatement();
@@ -287,7 +295,15 @@ std::unique_ptr<ASTNode> Parser::parseForStatement() {
     // Incremento del bucle for
     std::unique_ptr<ASTNode> increment = nullptr;
     if (peek().type != TokenType::RPAREN) {
-        increment = parseAssignmentStatement(); // Solo asignaciones simples para incremento
+        // En for, el incremento puede ser una asignación o llamada a función
+        if (peek().type == TokenType::IDENTIFIER && peek(1).type == TokenType::ASSIGN) {
+            increment = parseAssignmentStatement();
+        } else if (peek().type == TokenType::IDENTIFIER && peek(1).type == TokenType::LPAREN) {
+            increment = parseFunctionCall(); // Asume que llamadas a función también pueden ser incrementos
+        } else {
+            // CORRECCIÓN AQUÍ: Orden de argumentos
+            errorHandler.reportError("Expresión de incremento esperada en for.", peek().line, peek().column);
+        }
     }
     expect(TokenType::RPAREN, "Se esperaba ')' después del incremento en for.");
 
@@ -321,21 +337,29 @@ std::unique_ptr<ASTNode> Parser::parsePrintStatement() {
     Token formatStringToken = expect(TokenType::STRING_LITERAL, "Se esperaba una cadena de formato para printf.");
     if (formatStringToken.type == TokenType::UNKNOWN) return nullptr;
 
-    auto printNode = std::make_unique<PrintStatementNode>(formatStringToken.value);
-
-    while (match(TokenType::COMMA)) {
-        auto arg = parseExpression();
-        if (arg) {
-            printNode->arguments.push_back(std::move(arg));
-        } else {
-            ErrorHandler::reportError("Expresión de argumento esperada en printf.", peek().line, peek().column);
-            // Intenta recuperar si hay error en la expresión
-            if (peek().type != TokenType::RPAREN) consume();
+    std::vector<std::unique_ptr<ASTNode>> printArgs;
+    // Si hay una coma después de la cadena de formato, entonces hay argumentos.
+    if (peek().type == TokenType::COMMA) {
+        consume(); // Consumir la primera coma
+        while (peek().type != TokenType::RPAREN && peek().type != TokenType::END_OF_FILE) {
+            auto arg = parseExpression();
+            if (arg) {
+                printArgs.push_back(std::move(arg));
+            } else {
+                // CORRECCIÓN AQUÍ: Orden de argumentos
+                errorHandler.reportError("Expresión de argumento esperada en printf.", peek().line, peek().column);
+                if (peek().type != TokenType::RPAREN) consume();
+            }
+            if (peek().type == TokenType::COMMA) {
+                consume();
+            } else {
+                break; // No más comas, salir del bucle de argumentos
+            }
         }
     }
 
     expect(TokenType::RPAREN, "Se esperaba ')' después de los argumentos de printf.");
-    return printNode;
+    return std::make_unique<PrintStatementNode>(formatStringToken.value, std::move(printArgs));
 }
 
 // <functionCall> ::= IDENTIFIER "(" [ <argumentList> ] ")"
@@ -343,7 +367,7 @@ std::unique_ptr<ASTNode> Parser::parseFunctionCall() {
     Token funcName = expect(TokenType::IDENTIFIER, "Se esperaba un nombre de función para la llamada.");
     if (funcName.type == TokenType::UNKNOWN) return nullptr;
 
-    auto funcCallNode = std::make_unique<FunctionCallNode>(funcName.value);
+    std::vector<std::unique_ptr<ASTNode>> arguments;
 
     expect(TokenType::LPAREN, "Se esperaba '(' para la llamada a función.");
     if (peek().type == TokenType::UNKNOWN) return nullptr;
@@ -352,23 +376,23 @@ std::unique_ptr<ASTNode> Parser::parseFunctionCall() {
     while (peek().type != TokenType::RPAREN && peek().type != TokenType::END_OF_FILE) {
         auto arg = parseExpression();
         if (arg) {
-            funcCallNode->arguments.push_back(std::move(arg));
+            arguments.push_back(std::move(arg));
         } else {
-            ErrorHandler::reportError("Expresión de argumento esperada en la llamada a función.", peek().line, peek().column);
-            // Intenta recuperar si hay error en la expresión
+            // CORRECCIÓN AQUÍ: Orden de argumentos
+            errorHandler.reportError("Expresión de argumento esperada en la llamada a función.", peek().line, peek().column);
             if (peek().type != TokenType::RPAREN) consume();
         }
         if (peek().type == TokenType::COMMA) {
             consume();
         } else if (peek().type != TokenType::RPAREN) {
-            ErrorHandler::reportError("Se esperaba ',' o ')' después de los argumentos de la función.", peek().line, peek().column);
-            // Recuperación de error: avanzar para evitar bucle infinito
+            // CORRECCIÓN AQUÍ: Orden de argumentos
+            errorHandler.reportError("Se esperaba ',' o ')' después de los argumentos de la función.", peek().line, peek().column);
             if (peek().type != TokenType::RPAREN) consume();
         }
     }
 
     expect(TokenType::RPAREN, "Se esperaba ')' para cerrar la llamada a función.");
-    return funcCallNode;
+    return std::make_unique<FunctionCallNode>(funcName.value, std::move(arguments));
 }
 
 // <expression> ::= <equalityExpression>
@@ -379,11 +403,16 @@ std::unique_ptr<ASTNode> Parser::parseExpression() {
 // <equalityExpression> ::= <comparisonExpression> ( ( "==" | "!=" ) <comparisonExpression> )*
 std::unique_ptr<ASTNode> Parser::parseEqualityExpression() {
     auto expr = parseComparisonExpression();
+    if (!expr) return nullptr; // Manejar el caso de expresión nula
 
     while (peek().type == TokenType::EQUAL_EQUAL || peek().type == TokenType::NOT_EQUAL) {
         Token op = consume();
         auto right = parseComparisonExpression();
-        if (!right) return nullptr;
+        if (!right) {
+            // CORRECCIÓN AQUÍ: Orden de argumentos
+            errorHandler.reportError("Expresión derecha esperada para operador de igualdad.", peek().line, peek().column);
+            return nullptr;
+        }
         expr = std::make_unique<BinaryExpressionNode>(std::move(expr), std::move(right), op.value);
     }
     return expr;
@@ -392,12 +421,17 @@ std::unique_ptr<ASTNode> Parser::parseEqualityExpression() {
 // <comparisonExpression> ::= <additiveExpression> ( ( ">" | ">=" | "<" | "<=" ) <additiveExpression> )*
 std::unique_ptr<ASTNode> Parser::parseComparisonExpression() {
     auto expr = parseAdditiveExpression();
+    if (!expr) return nullptr;
 
     while (peek().type == TokenType::GREATER_THAN || peek().type == TokenType::GREATER_EQUAL ||
            peek().type == TokenType::LESS_THAN || peek().type == TokenType::LESS_EQUAL) {
         Token op = consume();
         auto right = parseAdditiveExpression();
-        if (!right) return nullptr;
+        if (!right) {
+            // CORRECCIÓN AQUÍ: Orden de argumentos
+            errorHandler.reportError("Expresión derecha esperada para operador de comparación.", peek().line, peek().column);
+            return nullptr;
+        }
         expr = std::make_unique<BinaryExpressionNode>(std::move(expr), std::move(right), op.value);
     }
     return expr;
@@ -406,11 +440,16 @@ std::unique_ptr<ASTNode> Parser::parseComparisonExpression() {
 // <additiveExpression> ::= <multiplicativeExpression> ( ( "+" | "-" ) <multiplicativeExpression> )*
 std::unique_ptr<ASTNode> Parser::parseAdditiveExpression() {
     auto expr = parseMultiplicativeExpression();
+    if (!expr) return nullptr;
 
     while (peek().type == TokenType::PLUS || peek().type == TokenType::MINUS) {
         Token op = consume();
         auto right = parseMultiplicativeExpression();
-        if (!right) return nullptr;
+        if (!right) {
+            // CORRECCIÓN AQUÍ: Orden de argumentos
+            errorHandler.reportError("Expresión derecha esperada para operador aditivo.", peek().line, peek().column);
+            return nullptr;
+        }
         expr = std::make_unique<BinaryExpressionNode>(std::move(expr), std::move(right), op.value);
     }
     return expr;
@@ -419,11 +458,16 @@ std::unique_ptr<ASTNode> Parser::parseAdditiveExpression() {
 // <multiplicativeExpression> ::= <primaryExpression> ( ( "*" | "/" ) <primaryExpression> )*
 std::unique_ptr<ASTNode> Parser::parseMultiplicativeExpression() {
     auto expr = parsePrimaryExpression();
+    if (!expr) return nullptr;
 
     while (peek().type == TokenType::MULTIPLY || peek().type == TokenType::DIVIDE) {
         Token op = consume();
         auto right = parsePrimaryExpression();
-        if (!right) return nullptr;
+        if (!right) {
+            // CORRECCIÓN AQUÍ: Orden de argumentos
+            errorHandler.reportError("Expresión derecha esperada para operador multiplicativo.", peek().line, peek().column);
+            return nullptr;
+        }
         expr = std::make_unique<BinaryExpressionNode>(std::move(expr), std::move(right), op.value);
     }
     return expr;
@@ -433,7 +477,8 @@ std::unique_ptr<ASTNode> Parser::parseMultiplicativeExpression() {
 //                       | STRING_LITERAL
 //                       | IDENTIFIER
 //                       | "(" <expression> ")"
-//                       | <functionCall> (si no es printf)
+//                       | <functionCall>
+//                       | "-" <primaryExpression> (para negación unaria)
 std::unique_ptr<ASTNode> Parser::parsePrimaryExpression() {
     switch (peek().type) {
         case TokenType::INTEGER_LITERAL:
@@ -449,12 +494,27 @@ std::unique_ptr<ASTNode> Parser::parsePrimaryExpression() {
         case TokenType::LPAREN: {
             consume(); // Consume '('
             auto expr = parseExpression();
-            if (!expr) return nullptr;
+            if (!expr) {
+                // CORRECCIÓN AQUÍ: Orden de argumentos
+                errorHandler.reportError("Expresión esperada dentro de paréntesis.", peek().line, peek().column);
+                return nullptr;
+            }
             expect(TokenType::RPAREN, "Se esperaba ')' después de la expresión entre paréntesis.");
             return expr;
         }
+        case TokenType::MINUS: { // Para manejar negación unaria (ej. -5)
+            Token op = consume(); // consume el '-'
+            auto operand = parsePrimaryExpression(); // El operando de la negación
+            if (!operand) {
+                // CORRECCIÓN AQUÍ: Orden de argumentos
+                errorHandler.reportError("Operando esperado para operador unario '-'.", peek().line, peek().column);
+                return nullptr;
+            }
+            return std::make_unique<UnaryExpressionNode>(op.value, std::move(operand));
+        }
         default:
-            ErrorHandler::reportError("Expresión primaria inesperada.", peek().line, peek().column);
+            // CORRECCIÓN AQUÍ: Orden de argumentos
+            errorHandler.reportError("Expresión primaria inesperada.", peek().line, peek().column);
             consume(); // Intenta recuperarse
             return nullptr;
     }

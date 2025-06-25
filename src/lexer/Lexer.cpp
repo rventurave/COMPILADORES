@@ -1,46 +1,49 @@
+// src/lexer/Lexer.cpp
 #include "Lexer.h"
-#include <cctype> // Para isalpha, isdigit, isalnum
-
-// Inicialización del mapa de palabras clave
-const std::map<std::string, TokenType> Lexer::keywords = {
-    {"int", TokenType::KEYWORD_INT},
-    {"void", TokenType::KEYWORD_VOID},
-    {"if", TokenType::KEYWORD_IF},
-    {"else", TokenType::KEYWORD_ELSE},
-    {"for", TokenType::KEYWORD_FOR},
-    {"return", TokenType::KEYWORD_RETURN},
-    {"printf", TokenType::KEYWORD_PRINTF}
-};
+#include <iostream> // Para depuración, si es necesario
 
 // Constructor
-Lexer::Lexer(const std::string& sourceCode)
-    : source(sourceCode), currentPos(0), currentLine(1), currentCol(1) {}
-
-// Obtiene el carácter en la posición actual + offset sin avanzar
-char Lexer::peek(int offset) {
-    if (currentPos + offset >= source.length()) {
-        return '\0'; // Carácter nulo para indicar el final
-    }
-    return source[currentPos + offset];
+Lexer::Lexer(const std::string& sourceCode, ErrorHandler& errorHandler)
+    : sourceCode(sourceCode), currentIndex(0), currentLine(1), currentCol(1), errorHandler(errorHandler) {
+    // Inicializar palabras clave
+    keywords["int"] = TokenType::KEYWORD_INT;
+    keywords["void"] = TokenType::KEYWORD_VOID;
+    keywords["if"] = TokenType::KEYWORD_IF;
+    keywords["else"] = TokenType::KEYWORD_ELSE;
+    keywords["for"] = TokenType::KEYWORD_FOR;
+    keywords["return"] = TokenType::KEYWORD_RETURN;
+    keywords["printf"] = TokenType::KEYWORD_PRINTF;
+    // Añade aquí más palabras clave si tu lenguaje las tiene (ej. while, break, continue)
 }
 
-// Obtiene el carácter actual y avanza la posición
+// Mira el carácter en la posición actual + offset sin avanzar.
+char Lexer::peek(int offset) {
+    if (currentIndex + offset >= sourceCode.length()) {
+        return '\0'; // Carácter nulo para indicar fin de archivo
+    }
+    return sourceCode[currentIndex + offset];
+}
+
+// Consume el carácter actual y avanza al siguiente.
 char Lexer::advance() {
     char c = peek();
-    if (!isAtEnd()) {
-        currentPos++;
+    if (c != '\0') {
+        currentIndex++;
         currentCol++;
-        return c;
+        if (c == '\n') {
+            currentLine++;
+            currentCol = 1;
+        }
     }
-    return '\0';
+    return c;
 }
 
-// Verifica si se ha llegado al final del código fuente
+// Verifica si se ha llegado al final del código fuente.
 bool Lexer::isAtEnd() {
-    return currentPos >= source.length();
+    return peek() == '\0';
 }
 
-// Ignora espacios en blanco, tabs, saltos de línea y comentarios
+// Salta espacios en blanco y comentarios.
 void Lexer::skipWhitespace() {
     while (!isAtEnd()) {
         char c = peek();
@@ -51,19 +54,14 @@ void Lexer::skipWhitespace() {
                 advance();
                 break;
             case '\n':
-                advance();
-                currentLine++;
-                currentCol = 1;
+                advance(); // advance ya maneja la línea y columna
                 break;
             case '/':
-                // Manejar comentarios de una línea //
-                if (peek(1) == '/') {
-                    while (!isAtEnd() && peek() != '\n') {
+                if (peek(1) == '/') { // Comentario de una línea //
+                    while (peek() != '\n' && !isAtEnd()) {
                         advance();
                     }
-                }
-                // Manejar comentarios de múltiples líneas /* */
-                else if (peek(1) == '*') {
+                } else if (peek(1) == '*') { // Comentario de múltiples líneas /* */
                     advance(); // Consume '/'
                     advance(); // Consume '*'
                     while (!isAtEnd()) {
@@ -73,16 +71,13 @@ void Lexer::skipWhitespace() {
                             break;
                         }
                         advance();
-                        if (peek() == '\n') {
-                            currentLine++;
-                            currentCol = 1;
-                        }
                     }
                     if (isAtEnd()) {
-                        ErrorHandler::reportError("Error: Comentario multi-línea sin cerrar.", currentLine, currentCol);
+                        // Reportar error de comentario no cerrado
+                        errorHandler.reportError("Comentario de múltiples líneas no cerrado.", currentLine, currentCol); // <--- ¡ORDEN CORREGIDO!
                     }
                 } else {
-                    return; // No es un comentario, salir del switch
+                    return; // No es un comentario, es solo '/'
                 }
                 break;
             default:
@@ -91,141 +86,149 @@ void Lexer::skipWhitespace() {
     }
 }
 
-// Escanea y devuelve el siguiente token
-Token Lexer::scanToken() {
-    skipWhitespace();
-
-    if (isAtEnd()) {
-        return Token(TokenType::END_OF_FILE, "", currentLine, currentCol);
-    }
-
-    char c = advance();
-    int startCol = currentCol - 1; // La columna donde empieza el token
-
-    if (isalpha(c) || c == '_') {
-        return identifierOrKeyword();
-    }
-    if (isdigit(c)) {
-        return number();
-    }
-    if (c == '"') {
-        return string();
-    }
-
-    switch (c) {
-        case '(': return Token(TokenType::LPAREN, "(", currentLine, startCol);
-        case ')': return Token(TokenType::RPAREN, ")", currentLine, startCol);
-        case '{': return Token(TokenType::LBRACE, "{", currentLine, startCol);
-        case '}': return Token(TokenType::RBRACE, "}", currentLine, startCol);
-        case ';': return Token(TokenType::SEMICOLON, ";", currentLine, startCol);
-        case ',': return Token(TokenType::COMMA, ",", currentLine, startCol);
-        case '+': return Token(TokenType::PLUS, "+", currentLine, startCol);
-        case '-': return Token(TokenType::MINUS, "-", currentLine, startCol);
-        case '*': return Token(TokenType::MULTIPLY, "*", currentLine, startCol);
-        case '/': return Token(TokenType::DIVIDE, "/", currentLine, startCol);
-        case '=':
-            if (peek() == '=') {
-                advance();
-                return Token(TokenType::EQUAL_EQUAL, "==", currentLine, startCol);
-            }
-            return Token(TokenType::ASSIGN, "=", currentLine, startCol);
-        case '<':
-            if (peek() == '=') {
-                advance();
-                return Token(TokenType::LESS_EQUAL, "<=", currentLine, startCol);
-            }
-            return Token(TokenType::LESS_THAN, "<", currentLine, startCol);
-        case '>':
-            if (peek() == '=') {
-                advance();
-                return Token(TokenType::GREATER_EQUAL, ">=", currentLine, startCol);
-            }
-            return Token(TokenType::GREATER_THAN, ">", currentLine, startCol);
-        case '!':
-            if (peek() == '=') {
-                advance();
-                return Token(TokenType::NOT_EQUAL, "!=", currentLine, startCol);
-            }
-            // En C, '!' por sí solo puede ser el operador lógico NOT.
-            // Dependiendo del alcance de C que quieras soportar, podrías añadirlo.
-            // Por ahora, lo dejamos como UNKNOWN si no va con '='.
-            break;
-        default:
-            ErrorHandler::reportError("Carácter inesperado: '" + std::string(1, c) + "'", currentLine, startCol);
-            return Token(TokenType::UNKNOWN, std::string(1, c), currentLine, startCol);
-    }
-    return Token(TokenType::UNKNOWN, std::string(1, c), currentLine, startCol); // En caso de que el switch no maneje un caracter
+// Crea un token con la información actual.
+Token Lexer::makeToken(TokenType type, const std::string& value) {
+    return Token(type, value, currentLine, currentCol - value.length()); // Ajustar columna
 }
 
-// Maneja identificadores y palabras clave
-Token Lexer::identifierOrKeyword() {
-    size_t startPos = currentPos - 1; // La posición donde comenzó el identificador/palabra clave
-    int startCol = currentCol - 1;
+// Escanea el siguiente token.
+void Lexer::scanToken() {
+    skipWhitespace(); // Saltar cualquier espacio en blanco o comentario antes de escanear
 
+    if (isAtEnd()) {
+        // Al final del archivo, agrega el token END_OF_FILE con la posición actual.
+        // Se resta 1 a currentCol si es el final de línea para apuntar al final del archivo.
+        int finalCol = currentCol;
+        if (sourceCode.empty() || sourceCode.back() == '\n') {
+            finalCol = 0; // Si el archivo termina en newline, la columna es 0 para EOF
+        }
+        tokens.emplace_back(TokenType::END_OF_FILE, "", currentLine, finalCol); // <--- ¡'tokens' ahora es miembro!
+        return;
+    }
+
+    char c = advance(); // Consume el primer carácter del token
+
+    // Determinar el tipo de token según el carácter actual
+    if (isalpha(c) || c == '_') {
+        tokens.push_back(scanIdentifierOrKeyword()); // <--- ¡'tokens' ahora es miembro!
+    } else if (isdigit(c)) {
+        tokens.push_back(scanNumber()); // <--- ¡'tokens' ahora es miembro!
+    } else if (c == '"') {
+        tokens.push_back(scanString()); // <--- ¡'tokens' ahora es miembro!
+    } else {
+        // Manejar operadores y puntuación
+        switch (c) {
+            case '+': tokens.push_back(makeToken(TokenType::PLUS, "+")); break;
+            case '-': tokens.push_back(makeToken(TokenType::MINUS, "-")); break;
+            case '*': tokens.push_back(makeToken(TokenType::MULTIPLY, "*")); break;
+            case '/': tokens.push_back(makeToken(TokenType::DIVIDE, "/")); break;
+            case '=':
+                if (peek() == '=') {
+                    advance();
+                    tokens.push_back(makeToken(TokenType::EQUAL_EQUAL, "=="));
+                } else {
+                    tokens.push_back(makeToken(TokenType::ASSIGN, "="));
+                }
+                break;
+            case '<':
+                if (peek() == '=') {
+                    advance();
+                    tokens.push_back(makeToken(TokenType::LESS_EQUAL, "<="));
+                } else {
+                    tokens.push_back(makeToken(TokenType::LESS_THAN, "<"));
+                }
+                break;
+            case '>':
+                if (peek() == '=') {
+                    advance();
+                    tokens.push_back(makeToken(TokenType::GREATER_EQUAL, ">="));
+                } else {
+                    tokens.push_back(makeToken(TokenType::GREATER_THAN, ">"));
+                }
+                break;
+            case '!':
+                if (peek() == '=') {
+                    advance();
+                    tokens.push_back(makeToken(TokenType::NOT_EQUAL, "!="));
+                } else {
+                    // Si tienes un operador de negación lógica '!', podrías manejarlo aquí.
+                    errorHandler.reportError("Operador '!' no esperado sin '='.", currentLine, currentCol); // <--- ¡ORDEN CORREGIDO!
+                    tokens.push_back(makeToken(TokenType::UNKNOWN, "!"));
+                }
+                break;
+            case '(': tokens.push_back(makeToken(TokenType::LPAREN, "(")); break;
+            case ')': tokens.push_back(makeToken(TokenType::RPAREN, ")")); break;
+            case '{': tokens.push_back(makeToken(TokenType::LBRACE, "{")); break;
+            case '}': tokens.push_back(makeToken(TokenType::RBRACE, "}")); break;
+            case ';': tokens.push_back(makeToken(TokenType::SEMICOLON, ";")); break;
+            case ',': tokens.push_back(makeToken(TokenType::COMMA, ",")); break;
+            default:
+                // Carácter desconocido
+                std::string unknownChar(1, c);
+                errorHandler.reportError("Carácter desconocido: '" + unknownChar + "'", currentLine, currentCol); // <--- ¡ORDEN CORREGIDO!
+                tokens.push_back(makeToken(TokenType::UNKNOWN, unknownChar));
+                break;
+        }
+    }
+}
+
+// Escanea un identificador o una palabra clave.
+Token Lexer::scanIdentifierOrKeyword() {
+    size_t start = currentIndex - 1; // El 'c' inicial ya fue avanzado
     while (isalnum(peek()) || peek() == '_') {
         advance();
     }
-    std::string value = source.substr(startPos, currentPos - startPos);
+    std::string value = sourceCode.substr(start, currentIndex - start);
 
     // Verificar si es una palabra clave
     auto it = keywords.find(value);
     if (it != keywords.end()) {
-        return Token(it->second, value, currentLine, startCol);
+        return makeToken(it->second, value);
     }
-    return Token(TokenType::IDENTIFIER, value, currentLine, startCol);
+    return makeToken(TokenType::IDENTIFIER, value);
 }
 
-// Maneja números enteros
-Token Lexer::number() {
-    size_t startPos = currentPos - 1;
-    int startCol = currentCol - 1;
-
+// Escanea un número (literal entero).
+Token Lexer::scanNumber() {
+    size_t start = currentIndex - 1; // El 'c' inicial ya fue avanzado
     while (isdigit(peek())) {
         advance();
     }
-    // Si queremos soportar flotantes, aquí habría que añadir lógica para el punto decimal
-    // For now, only integers
-    std::string value = source.substr(startPos, currentPos - startPos);
-    return Token(TokenType::INTEGER_LITERAL, value, currentLine, startCol);
+    // Si necesitas flotantes, añadirías lógica para '.' aquí.
+    std::string value = sourceCode.substr(start, currentIndex - start);
+    return makeToken(TokenType::INTEGER_LITERAL, value);
 }
 
-// Maneja literales de cadena
-Token Lexer::string() {
-    size_t startPos = currentPos; // El contenido de la cadena comienza después del '"' inicial
-    int startCol = currentCol;
-
+// Escanea una cadena (literal de cadena).
+Token Lexer::scanString() {
+    size_t start = currentIndex; // Empezar después de la comilla de apertura
     while (peek() != '"' && !isAtEnd()) {
-        if (peek() == '\n') { // Las cadenas no pueden cruzar líneas sin ser escapadas
-            ErrorHandler::reportError("Error: Salto de línea inesperado dentro de una cadena.", currentLine, currentCol);
-            // Podrías devolver un token de error o intentar recuperarte
-            return Token(TokenType::UNKNOWN, "", currentLine, startCol);
+        if (peek() == '\n') { // Las cadenas multilínea son un error en C estándar sin '\'
+            errorHandler.reportError("Saltos de línea no permitidos dentro de literales de cadena.", currentLine, currentCol); // <--- ¡ORDEN CORREGIDO!
         }
         advance();
     }
 
     if (isAtEnd()) {
-        ErrorHandler::reportError("Error: Cadena sin cerrar.", currentLine, startCol);
-        return Token(TokenType::UNKNOWN, "", currentLine, startCol);
+        errorHandler.reportError("Cadena no terminada.", currentLine, currentCol); // <--- ¡ORDEN CORREGIDO!
+        return makeToken(TokenType::UNKNOWN, sourceCode.substr(start -1, currentIndex - (start-1))); // Incluir la comilla de apertura
     }
 
-    std::string value = source.substr(startPos, currentPos - startPos);
-    advance(); // Consume el '"' de cierre
-    return Token(TokenType::STRING_LITERAL, value, currentLine, startCol);
+    advance(); // Consume la comilla de cierre '"'
+    std::string value = sourceCode.substr(start, currentIndex - 1 - start); // Excluir las comillas
+    return makeToken(TokenType::STRING_LITERAL, value);
 }
 
-// Método principal para realizar el análisis léxico
+// Método principal para realizar el análisis léxico y devolver una lista de tokens.
 std::vector<Token> Lexer::tokenize() {
-    std::vector<Token> tokens;
+    tokens.clear(); // Limpiar tokens de un posible análisis previo
+    currentIndex = 0;
+    currentLine = 1;
+    currentCol = 1;
+
     while (!isAtEnd()) {
-        Token token = scanToken();
-        if (token.type == TokenType::END_OF_FILE) {
-            break; // Salir del bucle si se alcanzó el final
-        }
-        if (token.type != TokenType::UNKNOWN) { // No añadir tokens de error a la lista principal
-            tokens.push_back(token);
-        }
+        scanToken();
     }
-    // Añadir el token de fin de archivo al final
-    tokens.push_back(Token(TokenType::END_OF_FILE, "", currentLine, currentCol));
+    scanToken(); // Llamada final para agregar el token END_OF_FILE
     return tokens;
 }

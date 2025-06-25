@@ -139,4 +139,6 @@ src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_ios.tcc \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.tcc \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/istream \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/istream.tcc
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/istream.tcc \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/utility \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_relops.h

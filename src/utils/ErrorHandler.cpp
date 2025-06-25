@@ -1,50 +1,49 @@
+// src/utils/ErrorHandler.cpp
 #include "ErrorHandler.h"
+#include <iostream> // Ya incluido, pero lo dejo por claridad
+#include <utility>  // Para std::move
 
-// Inicialización de los miembros estáticos
-std::vector<CompilerMessage> ErrorHandler::messages;
-bool ErrorHandler::foundError = false;
+ErrorHandler::ErrorHandler() : errorsExist(false) {}
 
-// Reporta un error de compilación.
 void ErrorHandler::reportError(const std::string& message, int line, int column) {
-    messages.emplace_back(CompilerMessage::MessageType::ERROR, message, line, column);
-    foundError = true;
-    std::cerr << "ERROR";
-    if (line != -1) {
-        std::cerr << " (Línea: " << line;
-        if (column != -1) {
-            std::cerr << ", Columna: " << column;
-        }
-        std::cerr << ")";
-    }
-    std::cerr << ": " << message << std::endl;
+    messages.emplace_back(message, line, column, true);
+    errorsExist = true;
 }
 
-// Reporta una advertencia de compilación.
 void ErrorHandler::reportWarning(const std::string& message, int line, int column) {
-    messages.emplace_back(CompilerMessage::MessageType::WARNING, message, line, column);
-    std::cerr << "ADVERTENCIA";
-    if (line != -1) {
-        std::cerr << " (Línea: " << line;
-        if (column != -1) {
-            std::cerr << ", Columna: " << column;
-        }
-        std::cerr << ")";
-    }
-    std::cerr << ": " << message << std::endl;
+    messages.emplace_back(message, line, column, false);
 }
 
-// Obtiene todos los mensajes (errores y advertencias) acumulados.
-const std::vector<CompilerMessage>& ErrorHandler::getMessages() {
+bool ErrorHandler::hasErrors() const {
+    return errorsExist;
+}
+
+const std::vector<CompilerMessage>& ErrorHandler::getMessages() const {
     return messages;
 }
 
-// Limpia todos los mensajes.
-void ErrorHandler::clearMessages() {
-    messages.clear();
-    foundError = false;
+// Implementación del nuevo método printMessages
+void ErrorHandler::printMessages() const {
+    for (const auto& msg : messages) {
+        if (msg.isError) {
+            std::cerr << "Error";
+        } else {
+            std::cerr << "Warning";
+        }
+
+        if (msg.line != -1) {
+            std::cerr << " (" << msg.line;
+            if (msg.column != -1) {
+                std::cerr << ":" << msg.column;
+            }
+            std::cerr << ")";
+        }
+        std::cerr << ": " << msg.message << std::endl;
+    }
 }
 
-// Retorna true si hay al menos un error.
-bool ErrorHandler::hasErrors() {
-    return foundError;
+
+void ErrorHandler::clearMessages() {
+    messages.clear();
+    errorsExist = false;
 }

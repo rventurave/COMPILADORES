@@ -1,46 +1,49 @@
-#ifndef ERROR_HANDLER_H
-#define ERROR_HANDLER_H
+// src/utils/ErrorHandler.h
+#ifndef ERRORHANDLER_H
+#define ERRORHANDLER_H
 
 #include <string>
 #include <vector>
-#include <iostream>
+#include <iostream> // Para std::cerr
 
-// Estructura para almacenar información sobre un error o advertencia.
+// Estructura para almacenar un mensaje de compilación (error o advertencia)
 struct CompilerMessage {
-    enum class MessageType {
-        ERROR,
-        WARNING
-    } type;
     std::string message;
     int line;
     int column;
+    bool isError; // true si es un error, false si es una advertencia
 
-    CompilerMessage(MessageType type, const std::string& msg, int l, int c)
-        : type(type), message(msg), line(l), column(c) {}
+    CompilerMessage(std::string msg, int l, int c, bool error)
+        : message(std::move(msg)), line(l), column(c), isError(error) {}
 };
 
-// Clase estática ErrorHandler para reportar y almacenar errores/advertencias.
+// Clase ErrorHandler: Centraliza el reporte y manejo de errores/advertencias
 class ErrorHandler {
 public:
-    // Reporta un error de compilación.
-    static void reportError(const std::string& message, int line = -1, int column = -1);
+    ErrorHandler();
 
-    // Reporta una advertencia de compilación.
-    static void reportWarning(const std::string& message, int line = -1, int column = -1);
+    // Reporta un error. Puede usarse con o sin información de línea/columna.
+    // Argumentos: message, line (opcional), column (opcional)
+    void reportError(const std::string& message, int line = -1, int column = -1);
 
-    // Obtiene todos los mensajes (errores y advertencias) acumulados.
-    static const std::vector<CompilerMessage>& getMessages();
+    // Reporta una advertencia.
+    void reportWarning(const std::string& message, int line = -1, int column = -1);
 
-    // Limpia todos los mensajes.
-    static void clearMessages();
+    // Verifica si se han reportado errores.
+    bool hasErrors() const;
 
-    // Retorna true si hay al menos un error.
-    static bool hasErrors();
+    // Obtiene todos los mensajes (errores y advertencias) reportados.
+    const std::vector<CompilerMessage>& getMessages() const;
+
+    // Imprime todos los mensajes reportados a la salida de error estándar.
+    void printMessages() const; // <--- ¡NUEVO MÉTODO!
+
+    // Limpia todos los mensajes reportados.
+    void clearMessages();
 
 private:
-    // Lista estática para almacenar todos los mensajes.
-    static std::vector<CompilerMessage> messages;
-    static bool foundError; // Bandera para indicar si se encontró al menos un error.
+    std::vector<CompilerMessage> messages;
+    bool errorsExist;
 };
 
-#endif // ERROR_HANDLER_H
+#endif // ERRORHANDLER_H1

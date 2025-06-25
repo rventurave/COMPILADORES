@@ -141,30 +141,16 @@ src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/fstream.tcc \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/sstream \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/sstream.tcc \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/vector \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_uninitialized.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_vector.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_bvector.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/vector.tcc \
- C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\lexer/Lexer.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/map \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_tree.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/aligned_buffer.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/node_handle.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_map.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_multimap.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/erase_if.h \
- C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\lexer/Token.h \
- C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/utils/ErrorHandler.h \
- C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\parser/Parser.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/memory \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_tempbuf.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_uninitialized.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_raw_storage_iter.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/align.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/unique_ptr.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/shared_ptr.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/shared_ptr_base.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/allocated_ptr.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/aligned_buffer.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/concurrence.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/shared_ptr_atomic.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/atomic_base.h \
@@ -172,8 +158,24 @@ src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/backward/auto_ptr.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/pstl/glue_memory_defs.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/pstl/execution_defs.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/vector \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_vector.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_bvector.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/vector.tcc \
+ C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\lexer/Lexer.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/map \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_tree.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/node_handle.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_map.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_multimap.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/erase_if.h \
+ C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\lexer/Token.h \
+ C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/utils/ErrorHandler.h \
+ C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\parser/Parser.h \
  C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/lexer/Token.h \
  C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\parser/AST.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/utility \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_relops.h \
  C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/utils/ErrorHandler.h \
  C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\semantic_analyzer/SemanticAnalyzer.h \
  C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/parser/AST.h \
@@ -181,5 +183,6 @@ src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.obj: \
  C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/utils/ErrorHandler.h \
  C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\code_generator/CodeGenerator.h \
  C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\code_generator/SFMLTranslator.h \
- C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\code_generator/SFMLTranslator.h \
+ C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/parser/AST.h \
+ C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/utils/ErrorHandler.h \
  C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\utils/ErrorHandler.h

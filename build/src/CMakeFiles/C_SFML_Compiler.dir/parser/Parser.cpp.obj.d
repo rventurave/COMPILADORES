@@ -158,4 +158,6 @@ src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/istream \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/istream.tcc \
  C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\parser\AST.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/utility \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_relops.h \
  C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/utils/ErrorHandler.h

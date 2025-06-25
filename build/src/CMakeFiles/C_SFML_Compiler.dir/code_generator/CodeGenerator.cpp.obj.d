@@ -1,6 +1,7 @@
 src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.obj: \
  C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\code_generator\CodeGenerator.cpp \
  C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\code_generator\CodeGenerator.h \
+ C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\code_generator\SFMLTranslator.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/string \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/requires_hosted.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -100,42 +101,21 @@ src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator_args.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tuple \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/memory \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_tempbuf.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_uninitialized.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_raw_storage_iter.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/align.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/unique_ptr.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/shared_ptr.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/shared_ptr_base.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/sstream \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/istream \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ios \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/exception \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/exception_ptr.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cxxabi_init_exception.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/typeinfo \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/allocated_ptr.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/aligned_buffer.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/nested_exception.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ios_base.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/atomicity.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
  C:/MinGW/x86_64-w64-mingw32/include/sys/timeb.h \
  C:/MinGW/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/concurrence.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/exception \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/exception_ptr.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cxxabi_init_exception.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/nested_exception.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/shared_ptr_atomic.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/atomic_base.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/atomic_lockfree_defines.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/backward/auto_ptr.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/pstl/glue_memory_defs.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/pstl/execution_defs.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/vector \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_vector.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_bvector.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/vector.tcc \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/sstream \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/istream \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ios \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ios_base.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_classes.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_classes.tcc \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/system_error \
@@ -157,11 +137,35 @@ src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.tcc \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/istream.tcc \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/sstream.tcc \
- C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/parser/AST.h \
- C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\code_generator\SFMLTranslator.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/vector \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_uninitialized.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_vector.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_bvector.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/vector.tcc \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/map \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_tree.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/aligned_buffer.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/node_handle.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_map.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_multimap.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/erase_if.h
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/erase_if.h \
+ C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/parser/AST.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/memory \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_tempbuf.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_raw_storage_iter.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/align.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/unique_ptr.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/shared_ptr.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/shared_ptr_base.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/allocated_ptr.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/concurrence.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/shared_ptr_atomic.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/atomic_base.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/atomic_lockfree_defines.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/backward/auto_ptr.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/pstl/glue_memory_defs.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/pstl/execution_defs.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/utility \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_relops.h \
+ C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/utils/ErrorHandler.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iostream

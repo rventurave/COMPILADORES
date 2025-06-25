@@ -1,42 +1,60 @@
-#ifndef CODE_GENERATOR_H
-#define CODE_GENERATOR_H
+// src/code_generator/CodeGenerator.h
+#ifndef CODEGENERATOR_H
+#define CODEGENERATOR_H
 
+#include "SFMLTranslator.h"
+#include "../parser/AST.h" // Incluye el AST.h para todas las definiciones
+#include "../utils/ErrorHandler.h" // <--- ¡NUEVO: Incluir ErrorHandler!
 #include <string>
-#include <memory>
-#include <vector>
-#include <sstream>
-#include "AST.h" // Incluir el AST
-#include "SFMLTranslator.h" // Incluir el traductor SFML
+#include <memory>   // Para std::unique_ptr
+#include <sstream>  // Para std::stringstream
+#include <vector>   // Para std::vector en parámetros de funciones
 
-// Clase CodeGenerator: Recorre el AST y genera código SFML.
+// Forward declarations para los nodos del AST (generalmente no necesarias si AST.h se incluye completamente)
+class ProgramNode;
+class FunctionDeclarationNode;
+class VariableDeclarationNode;
+class AssignmentStatementNode;
+class FunctionCallNode;
+class ReturnStatementNode;
+class IfStatementNode;
+class ForStatementNode;
+class PrintStatementNode;
+class IdentifierNode;
+class LiteralNode;
+class BinaryExpressionNode;
+class UnaryExpressionNode;
+class BlockStatementNode;
+
 class CodeGenerator {
 public:
-    explicit CodeGenerator(SFMLTranslator& translator);
+    // Constructor: Ahora toma una referencia a ErrorHandler
+    explicit CodeGenerator(ErrorHandler& errorHandler); // <--- ¡CONSTRUCTOR MODIFICADO!
 
-    // Método principal para iniciar la generación de código.
-    std::string generate(ASTNode* root);
+    std::string generate(ProgramNode* program);
 
-private:
-    SFMLTranslator& translator; // Referencia al traductor de SFML
-
-    // Métodos para visitar y generar código para diferentes tipos de nodos AST.
     std::string visit(ASTNode* node);
     std::string visitProgramNode(ProgramNode* node);
     std::string visitFunctionDeclarationNode(FunctionDeclarationNode* node);
     std::string visitVariableDeclarationNode(VariableDeclarationNode* node);
     std::string visitAssignmentStatementNode(AssignmentStatementNode* node);
-    std::string visitBinaryExpressionNode(BinaryExpressionNode* node);
-    std::string visitLiteralNode(LiteralNode* node);
-    std::string visitIdentifierNode(IdentifierNode* node);
+    std::string visitFunctionCallNode(FunctionCallNode* node);
+    std::string visitReturnStatementNode(ReturnStatementNode* node);
     std::string visitIfStatementNode(IfStatementNode* node);
     std::string visitForStatementNode(ForStatementNode* node);
-    std::string visitReturnStatementNode(ReturnStatementNode* node);
-    std::string visitFunctionCallNode(FunctionCallNode* node);
     std::string visitPrintStatementNode(PrintStatementNode* node);
     std::string visitBlockStatementNode(BlockStatementNode* node);
 
-    // Métodos auxiliares para construir expresiones
     std::string generateExpression(ASTNode* node);
+    std::string visitIdentifierNode(IdentifierNode* node);
+    std::string visitLiteralNode(LiteralNode* node);
+    std::string visitBinaryExpressionNode(BinaryExpressionNode* node);
+    std::string visitUnaryExpressionNode(UnaryExpressionNode* node);
+
+private:
+    SFMLTranslator translator;
+    std::string currentFunctionName;
+    ErrorHandler& errorHandler; // <--- ¡NUEVO: Miembro para el manejador de errores!
 };
 
-#endif // CODE_GENERATOR_H
+#endif // CODEGENERATOR_H
