@@ -1,3 +1,6 @@
+# No repitas cmake_minimum_required ni project aquí
+# Ni find_package aquí → ya se hizo en el padre
+
 # Ejecutable principal
 add_executable(C_SFML_Compiler
     main.cpp

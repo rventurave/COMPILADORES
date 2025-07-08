@@ -67,24 +67,11 @@ int fo() {
 void run_c_program_simulation() {
     // Program Start
     visualizeStep("Program Started", COLOR_DEFAULT_TEXT);
-    visualizeStep("Entering function: main", COLOR_FUNCTION_CALL);
-    // Enter new stack frame for main
+    visualizeStep("Entering function: global_scope", COLOR_FUNCTION_CALL);
+    // Enter new stack frame for global_scope
     stackFrames.emplace_back();
-    {
-        visualizeStep("Entering function: fo", COLOR_FUNCTION_CALL);
-        // Enter new stack frame for fo
-        stackFrames.emplace_back();
-        fo();
-        visualizeStep("Returning from main with value: 0", COLOR_RETURN);
-        return 0;
-        visualizeStep("Exiting function: main (Retorna: 0)", COLOR_RETURN);
-        // Exit stack frame for main
-        if (!stackFrames.empty()) {
-            stackFrames.pop_back();
-        }
-    }
-    visualizeStep("Exiting function: main", COLOR_RETURN);
-    // Exit stack frame for main
+    visualizeStep("Exiting function: global_scope", COLOR_RETURN);
+    // Exit stack frame for global_scope
     if (!stackFrames.empty()) {
         stackFrames.pop_back();
     }

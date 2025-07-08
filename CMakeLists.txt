@@ -7,8 +7,11 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-# Buscar SFML en ruta dada por el usuario o en variables del sistema
+# ✅ Indicar dónde está SFMLConfig.cmake
+set(SFML_DIR "C:/SFML-2.6.1/lib/cmake/SFML")
+
+# Buscar SFML
 find_package(SFML 2.5 REQUIRED COMPONENTS graphics window system audio)
 
-# Pasar a subdirectorios
+# Pasar a subdirectorio src
 add_subdirectory(src)
