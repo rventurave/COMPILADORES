@@ -37,11 +37,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/SFML-2.6.1/lib/cmake/SFML/SFMLSharedTargets-debug.cmake"
   "C:/SFML-2.6.1/lib/cmake/SFML/SFMLSharedTargets-release.cmake"
   "C:/SFML-2.6.1/lib/cmake/SFML/SFMLSharedTargets.cmake"
-  "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/CMakeLists.txt"
+  "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/CMakeLists.txt"
   "CMakeFiles/4.0.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.0.2/CMakeRCCompiler.cmake"
   "CMakeFiles/4.0.2/CMakeSystem.cmake"
-  "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/CMakeLists.txt"
+  "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/CMakeLists.txt"
   )
 
 # The corresponding makefile is:

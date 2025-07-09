@@ -1,62 +1,62 @@
 [
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\main.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\compiler_project\\src\\main.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/main.cpp",
+  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\main.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\main.cpp",
+  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/main.cpp",
   "output": "src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.obj"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\lexer\\Lexer.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\compiler_project\\src\\lexer\\Lexer.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/lexer/Lexer.cpp",
+  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\lexer\\Lexer.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\lexer\\Lexer.cpp",
+  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/lexer/Lexer.cpp",
   "output": "src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.obj"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\lexer\\Token.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\compiler_project\\src\\lexer\\Token.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/lexer/Token.cpp",
+  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\lexer\\Token.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\lexer\\Token.cpp",
+  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/lexer/Token.cpp",
   "output": "src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.obj"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\parser\\AST.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\compiler_project\\src\\parser\\AST.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/parser/AST.cpp",
+  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\parser\\AST.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\parser\\AST.cpp",
+  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/parser/AST.cpp",
   "output": "src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.obj"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\parser\\Parser.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\compiler_project\\src\\parser\\Parser.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/parser/Parser.cpp",
+  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\parser\\Parser.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\parser\\Parser.cpp",
+  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/parser/Parser.cpp",
   "output": "src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.obj"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\semantic_analyzer\\SemanticAnalyzer.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\compiler_project\\src\\semantic_analyzer\\SemanticAnalyzer.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/semantic_analyzer/SemanticAnalyzer.cpp",
+  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\semantic_analyzer\\SemanticAnalyzer.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\semantic_analyzer\\SemanticAnalyzer.cpp",
+  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/semantic_analyzer/SemanticAnalyzer.cpp",
   "output": "src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.obj"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\semantic_analyzer\\SymbolTable.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\compiler_project\\src\\semantic_analyzer\\SymbolTable.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/semantic_analyzer/SymbolTable.cpp",
+  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\semantic_analyzer\\SymbolTable.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\semantic_analyzer\\SymbolTable.cpp",
+  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/semantic_analyzer/SymbolTable.cpp",
   "output": "src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.obj"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\code_generator\\CodeGenerator.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\compiler_project\\src\\code_generator\\CodeGenerator.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/code_generator/CodeGenerator.cpp",
+  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\code_generator\\CodeGenerator.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\code_generator\\CodeGenerator.cpp",
+  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/code_generator/CodeGenerator.cpp",
   "output": "src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.obj"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\code_generator\\SFMLTranslator.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\compiler_project\\src\\code_generator\\SFMLTranslator.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/code_generator/SFMLTranslator.cpp",
+  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\code_generator\\SFMLTranslator.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\code_generator\\SFMLTranslator.cpp",
+  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/code_generator/SFMLTranslator.cpp",
   "output": "src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.obj"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\utils\\ErrorHandler.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\compiler_project\\src\\utils\\ErrorHandler.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/utils/ErrorHandler.cpp",
+  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\utils\\ErrorHandler.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\utils\\ErrorHandler.cpp",
+  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/utils/ErrorHandler.cpp",
   "output": "src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.obj"
 }
 ]

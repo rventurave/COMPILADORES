@@ -55,7 +55,7 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "C_SFML_Compiler::@145eef247bfb46b6828c",
-					"jsonFile" : "target-C_SFML_Compiler-Debug-6e90844a16600a862adf.json",
+					"jsonFile" : "target-C_SFML_Compiler-Debug-492c31e03feec8c8283c.json",
 					"name" : "C_SFML_Compiler",
 					"projectIndex" : 0
 				}
@@ -65,8 +65,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/build",
-		"source" : "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project"
+		"build" : "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build",
+		"source" : "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES"
 	},
 	"version" : 
 	{

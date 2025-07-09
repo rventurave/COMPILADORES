@@ -1,6 +1,6 @@
 src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.obj: \
- C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\code_generator\SFMLTranslator.cpp \
- C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\code_generator\SFMLTranslator.h \
+ C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\code_generator\SFMLTranslator.cpp \
+ C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\code_generator\SFMLTranslator.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/string \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/requires_hosted.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -100,6 +100,18 @@ src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator_args.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tuple \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/vector \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_uninitialized.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_vector.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_bvector.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/vector.tcc \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/map \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_tree.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/aligned_buffer.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/node_handle.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_map.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_multimap.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/erase_if.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/sstream \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/istream \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ios \
@@ -136,35 +148,9 @@ src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.tcc \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/istream.tcc \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/sstream.tcc \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/vector \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_uninitialized.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_vector.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_bvector.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/vector.tcc \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/map \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_tree.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/aligned_buffer.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/node_handle.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_map.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_multimap.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/erase_if.h \
- C:/SFML-2.6.1/include/SFML/Graphics.hpp \
- C:/SFML-2.6.1/include/SFML/Window.hpp \
- C:/SFML-2.6.1/include/SFML/System.hpp \
- C:/SFML-2.6.1/include/SFML/Config.hpp \
- C:/SFML-2.6.1/include/SFML/System/Clock.hpp \
- C:/SFML-2.6.1/include/SFML/System/Export.hpp \
- C:/SFML-2.6.1/include/SFML/System/Time.hpp \
- C:/SFML-2.6.1/include/SFML/System/Err.hpp \
- C:/SFML-2.6.1/include/SFML/System/FileInputStream.hpp \
- C:/SFML-2.6.1/include/SFML/System/InputStream.hpp \
- C:/SFML-2.6.1/include/SFML/System/NonCopyable.hpp \
- C:/SFML-2.6.1/include/SFML/System/Lock.hpp \
- C:/SFML-2.6.1/include/SFML/System/MemoryInputStream.hpp \
- C:/SFML-2.6.1/include/SFML/System/Mutex.hpp \
- C:/SFML-2.6.1/include/SFML/System/Sleep.hpp \
- C:/SFML-2.6.1/include/SFML/System/String.hpp \
- C:/SFML-2.6.1/include/SFML/System/Utf.hpp \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/utility \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_relops.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iostream \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/algorithm \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_algo.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/algorithmfwd.h \
@@ -172,81 +158,4 @@ src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uniform_int_dist.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_tempbuf.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/pstl/glue_algorithm_defs.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/pstl/execution_defs.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/locale \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_facets_nonio.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ctime \
- C:/MinGW/x86_64-w64-mingw32/include/time.h \
- C:/MinGW/x86_64-w64-mingw32/include/_timeval.h \
- C:/MinGW/x86_64-w64-mingw32/include/pthread_time.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/codecvt.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_facets_nonio.tcc \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_conv.h \
- C:/SFML-2.6.1/include/SFML/System/Utf.inl \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iterator \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stream_iterator.h \
- C:/SFML-2.6.1/include/SFML/System/String.inl \
- C:/SFML-2.6.1/include/SFML/System/Thread.hpp \
- C:/SFML-2.6.1/include/SFML/System/Thread.inl \
- C:/SFML-2.6.1/include/SFML/System/ThreadLocal.hpp \
- C:/SFML-2.6.1/include/SFML/System/ThreadLocalPtr.hpp \
- C:/SFML-2.6.1/include/SFML/System/ThreadLocalPtr.inl \
- C:/SFML-2.6.1/include/SFML/System/Vector2.hpp \
- C:/SFML-2.6.1/include/SFML/System/Vector2.inl \
- C:/SFML-2.6.1/include/SFML/System/Vector3.hpp \
- C:/SFML-2.6.1/include/SFML/System/Vector3.inl \
- C:/SFML-2.6.1/include/SFML/Window/Clipboard.hpp \
- C:/SFML-2.6.1/include/SFML/Window/Export.hpp \
- C:/SFML-2.6.1/include/SFML/Window/Context.hpp \
- C:/SFML-2.6.1/include/SFML/Window/GlResource.hpp \
- C:/SFML-2.6.1/include/SFML/Window/ContextSettings.hpp \
- C:/SFML-2.6.1/include/SFML/Window/Cursor.hpp \
- C:/SFML-2.6.1/include/SFML/Window/Event.hpp \
- C:/SFML-2.6.1/include/SFML/Window/Joystick.hpp \
- C:/SFML-2.6.1/include/SFML/Window/Keyboard.hpp \
- C:/SFML-2.6.1/include/SFML/Window/Mouse.hpp \
- C:/SFML-2.6.1/include/SFML/Window/Sensor.hpp \
- C:/SFML-2.6.1/include/SFML/Window/Touch.hpp \
- C:/SFML-2.6.1/include/SFML/Window/VideoMode.hpp \
- C:/SFML-2.6.1/include/SFML/Window/Window.hpp \
- C:/SFML-2.6.1/include/SFML/Window/WindowBase.hpp \
- C:/SFML-2.6.1/include/SFML/Window/Vulkan.hpp \
- C:/SFML-2.6.1/include/SFML/Window/WindowHandle.hpp \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/stdint.h \
- C:/MinGW/x86_64-w64-mingw32/include/stdint.h \
- C:/SFML-2.6.1/include/SFML/Window/WindowStyle.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/BlendMode.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/Export.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/CircleShape.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/Shape.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/Drawable.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/RenderStates.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/Transform.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/Rect.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/Rect.inl \
- C:/SFML-2.6.1/include/SFML/Graphics/Transformable.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/VertexArray.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/Vertex.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/Color.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/PrimitiveType.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/ConvexShape.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/Font.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/Glyph.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/Texture.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/Image.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/RectangleShape.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/RenderTarget.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/View.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/RenderTexture.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/RenderWindow.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/Shader.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/Glsl.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/Glsl.inl \
- C:/SFML-2.6.1/include/SFML/Graphics/Sprite.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/Text.hpp \
- C:/SFML-2.6.1/include/SFML/Graphics/VertexBuffer.hpp \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iostream \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/utility \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_relops.h
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/pstl/execution_defs.h

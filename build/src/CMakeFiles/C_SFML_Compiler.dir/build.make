@@ -52,10 +52,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project
+CMAKE_SOURCE_DIR = C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build
+CMAKE_BINARY_DIR = C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build
 
 # Include any dependencies generated for this target.
 include src/CMakeFiles/C_SFML_Compiler.dir/depend.make
@@ -73,153 +73,153 @@ src/CMakeFiles/C_SFML_Compiler.dir/codegen:
 
 src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/flags.make
 src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp
-src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/main.cpp
+src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/main.cpp
 src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.obj"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\main.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\main.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.obj"
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\main.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\main.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\main.cpp
 
 src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C_SFML_Compiler.dir/main.cpp.i"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\main.cpp > CMakeFiles\C_SFML_Compiler.dir\main.cpp.i
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\main.cpp > CMakeFiles\C_SFML_Compiler.dir\main.cpp.i
 
 src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C_SFML_Compiler.dir/main.cpp.s"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\main.cpp -o CMakeFiles\C_SFML_Compiler.dir\main.cpp.s
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\main.cpp -o CMakeFiles\C_SFML_Compiler.dir\main.cpp.s
 
 src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/flags.make
 src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp
-src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/lexer/Lexer.cpp
+src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/lexer/Lexer.cpp
 src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.obj"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\lexer\Lexer.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\lexer\Lexer.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\lexer\Lexer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.obj"
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\lexer\Lexer.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\lexer\Lexer.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\lexer\Lexer.cpp
 
 src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.i"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\lexer\Lexer.cpp > CMakeFiles\C_SFML_Compiler.dir\lexer\Lexer.cpp.i
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\lexer\Lexer.cpp > CMakeFiles\C_SFML_Compiler.dir\lexer\Lexer.cpp.i
 
 src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.s"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\lexer\Lexer.cpp -o CMakeFiles\C_SFML_Compiler.dir\lexer\Lexer.cpp.s
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\lexer\Lexer.cpp -o CMakeFiles\C_SFML_Compiler.dir\lexer\Lexer.cpp.s
 
 src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/flags.make
 src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp
-src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/lexer/Token.cpp
+src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/lexer/Token.cpp
 src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.obj"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\lexer\Token.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\lexer\Token.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\lexer\Token.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.obj"
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\lexer\Token.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\lexer\Token.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\lexer\Token.cpp
 
 src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.i"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\lexer\Token.cpp > CMakeFiles\C_SFML_Compiler.dir\lexer\Token.cpp.i
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\lexer\Token.cpp > CMakeFiles\C_SFML_Compiler.dir\lexer\Token.cpp.i
 
 src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.s"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\lexer\Token.cpp -o CMakeFiles\C_SFML_Compiler.dir\lexer\Token.cpp.s
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\lexer\Token.cpp -o CMakeFiles\C_SFML_Compiler.dir\lexer\Token.cpp.s
 
 src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/flags.make
 src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp
-src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/parser/AST.cpp
+src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/parser/AST.cpp
 src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.obj"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\parser\AST.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\parser\AST.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\parser\AST.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.obj"
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\parser\AST.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\parser\AST.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\parser\AST.cpp
 
 src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.i"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\parser\AST.cpp > CMakeFiles\C_SFML_Compiler.dir\parser\AST.cpp.i
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\parser\AST.cpp > CMakeFiles\C_SFML_Compiler.dir\parser\AST.cpp.i
 
 src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.s"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\parser\AST.cpp -o CMakeFiles\C_SFML_Compiler.dir\parser\AST.cpp.s
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\parser\AST.cpp -o CMakeFiles\C_SFML_Compiler.dir\parser\AST.cpp.s
 
 src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/flags.make
 src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp
-src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/parser/Parser.cpp
+src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/parser/Parser.cpp
 src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.obj"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\parser\Parser.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\parser\Parser.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\parser\Parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.obj"
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\parser\Parser.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\parser\Parser.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\parser\Parser.cpp
 
 src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.i"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\parser\Parser.cpp > CMakeFiles\C_SFML_Compiler.dir\parser\Parser.cpp.i
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\parser\Parser.cpp > CMakeFiles\C_SFML_Compiler.dir\parser\Parser.cpp.i
 
 src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.s"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\parser\Parser.cpp -o CMakeFiles\C_SFML_Compiler.dir\parser\Parser.cpp.s
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\parser\Parser.cpp -o CMakeFiles\C_SFML_Compiler.dir\parser\Parser.cpp.s
 
 src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/flags.make
 src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp
-src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/semantic_analyzer/SemanticAnalyzer.cpp
+src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/semantic_analyzer/SemanticAnalyzer.cpp
 src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.obj"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\semantic_analyzer\SemanticAnalyzer.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\semantic_analyzer\SemanticAnalyzer.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\semantic_analyzer\SemanticAnalyzer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.obj"
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\semantic_analyzer\SemanticAnalyzer.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\semantic_analyzer\SemanticAnalyzer.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\semantic_analyzer\SemanticAnalyzer.cpp
 
 src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.i"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\semantic_analyzer\SemanticAnalyzer.cpp > CMakeFiles\C_SFML_Compiler.dir\semantic_analyzer\SemanticAnalyzer.cpp.i
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\semantic_analyzer\SemanticAnalyzer.cpp > CMakeFiles\C_SFML_Compiler.dir\semantic_analyzer\SemanticAnalyzer.cpp.i
 
 src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.s"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\semantic_analyzer\SemanticAnalyzer.cpp -o CMakeFiles\C_SFML_Compiler.dir\semantic_analyzer\SemanticAnalyzer.cpp.s
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\semantic_analyzer\SemanticAnalyzer.cpp -o CMakeFiles\C_SFML_Compiler.dir\semantic_analyzer\SemanticAnalyzer.cpp.s
 
 src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/flags.make
 src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp
-src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/semantic_analyzer/SymbolTable.cpp
+src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/semantic_analyzer/SymbolTable.cpp
 src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.obj"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\semantic_analyzer\SymbolTable.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\semantic_analyzer\SymbolTable.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\semantic_analyzer\SymbolTable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.obj"
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\semantic_analyzer\SymbolTable.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\semantic_analyzer\SymbolTable.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\semantic_analyzer\SymbolTable.cpp
 
 src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.i"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\semantic_analyzer\SymbolTable.cpp > CMakeFiles\C_SFML_Compiler.dir\semantic_analyzer\SymbolTable.cpp.i
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\semantic_analyzer\SymbolTable.cpp > CMakeFiles\C_SFML_Compiler.dir\semantic_analyzer\SymbolTable.cpp.i
 
 src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.s"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\semantic_analyzer\SymbolTable.cpp -o CMakeFiles\C_SFML_Compiler.dir\semantic_analyzer\SymbolTable.cpp.s
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\semantic_analyzer\SymbolTable.cpp -o CMakeFiles\C_SFML_Compiler.dir\semantic_analyzer\SymbolTable.cpp.s
 
 src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/flags.make
 src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp
-src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/code_generator/CodeGenerator.cpp
+src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/code_generator/CodeGenerator.cpp
 src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.obj"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\code_generator\CodeGenerator.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\code_generator\CodeGenerator.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\code_generator\CodeGenerator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.obj"
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\code_generator\CodeGenerator.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\code_generator\CodeGenerator.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\code_generator\CodeGenerator.cpp
 
 src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.i"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\code_generator\CodeGenerator.cpp > CMakeFiles\C_SFML_Compiler.dir\code_generator\CodeGenerator.cpp.i
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\code_generator\CodeGenerator.cpp > CMakeFiles\C_SFML_Compiler.dir\code_generator\CodeGenerator.cpp.i
 
 src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.s"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\code_generator\CodeGenerator.cpp -o CMakeFiles\C_SFML_Compiler.dir\code_generator\CodeGenerator.cpp.s
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\code_generator\CodeGenerator.cpp -o CMakeFiles\C_SFML_Compiler.dir\code_generator\CodeGenerator.cpp.s
 
 src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/flags.make
 src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp
-src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/code_generator/SFMLTranslator.cpp
+src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/code_generator/SFMLTranslator.cpp
 src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.obj"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\code_generator\SFMLTranslator.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\code_generator\SFMLTranslator.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\code_generator\SFMLTranslator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.obj"
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\code_generator\SFMLTranslator.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\code_generator\SFMLTranslator.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\code_generator\SFMLTranslator.cpp
 
 src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.i"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\code_generator\SFMLTranslator.cpp > CMakeFiles\C_SFML_Compiler.dir\code_generator\SFMLTranslator.cpp.i
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\code_generator\SFMLTranslator.cpp > CMakeFiles\C_SFML_Compiler.dir\code_generator\SFMLTranslator.cpp.i
 
 src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.s"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\code_generator\SFMLTranslator.cpp -o CMakeFiles\C_SFML_Compiler.dir\code_generator\SFMLTranslator.cpp.s
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\code_generator\SFMLTranslator.cpp -o CMakeFiles\C_SFML_Compiler.dir\code_generator\SFMLTranslator.cpp.s
 
 src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/flags.make
 src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp
-src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/utils/ErrorHandler.cpp
+src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.obj: C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/utils/ErrorHandler.cpp
 src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.obj: src/CMakeFiles/C_SFML_Compiler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.obj"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\utils\ErrorHandler.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\utils\ErrorHandler.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\utils\ErrorHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.obj"
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.obj -MF CMakeFiles\C_SFML_Compiler.dir\utils\ErrorHandler.cpp.obj.d -o CMakeFiles\C_SFML_Compiler.dir\utils\ErrorHandler.cpp.obj -c C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\utils\ErrorHandler.cpp
 
 src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.i"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\utils\ErrorHandler.cpp > CMakeFiles\C_SFML_Compiler.dir\utils\ErrorHandler.cpp.i
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\utils\ErrorHandler.cpp > CMakeFiles\C_SFML_Compiler.dir\utils\ErrorHandler.cpp.i
 
 src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.s"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\utils\ErrorHandler.cpp -o CMakeFiles\C_SFML_Compiler.dir\utils\ErrorHandler.cpp.s
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\utils\ErrorHandler.cpp -o CMakeFiles\C_SFML_Compiler.dir\utils\ErrorHandler.cpp.s
 
 # Object files for target C_SFML_Compiler
 C_SFML_Compiler_OBJECTS = \
@@ -255,19 +255,19 @@ src/C_SFML_Compiler.exe: C:/SFML-2.6.1/lib/libsfml-system-d.a
 src/C_SFML_Compiler.exe: src/CMakeFiles/C_SFML_Compiler.dir/linkLibs.rsp
 src/C_SFML_Compiler.exe: src/CMakeFiles/C_SFML_Compiler.dir/objects1.rsp
 src/C_SFML_Compiler.exe: src/CMakeFiles/C_SFML_Compiler.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable C_SFML_Compiler.exe"
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\C_SFML_Compiler.dir\link.txt --verbose=$(VERBOSE)
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && "C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different C:/SFML-2.6.1/bin/sfml-graphics-2.dll C:/SFML-2.6.1/bin/sfml-window-2.dll C:/SFML-2.6.1/bin/sfml-system-2.dll C:/SFML-2.6.1/bin/sfml-audio-2.dll C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/build/src
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable C_SFML_Compiler.exe"
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\C_SFML_Compiler.dir\link.txt --verbose=$(VERBOSE)
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && "C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different C:/SFML-2.6.1/bin/sfml-graphics-2.dll C:/SFML-2.6.1/bin/sfml-window-2.dll C:/SFML-2.6.1/bin/sfml-system-2.dll C:/SFML-2.6.1/bin/sfml-audio-2.dll C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src
 
 # Rule to build all files generated by this target.
 src/CMakeFiles/C_SFML_Compiler.dir/build: src/C_SFML_Compiler.exe
 .PHONY : src/CMakeFiles/C_SFML_Compiler.dir/build
 
 src/CMakeFiles/C_SFML_Compiler.dir/clean:
-	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src && $(CMAKE_COMMAND) -P CMakeFiles\C_SFML_Compiler.dir\cmake_clean.cmake
+	cd /d C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src && $(CMAKE_COMMAND) -P CMakeFiles\C_SFML_Compiler.dir\cmake_clean.cmake
 .PHONY : src/CMakeFiles/C_SFML_Compiler.dir/clean
 
 src/CMakeFiles/C_SFML_Compiler.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\build\src\CMakeFiles\C_SFML_Compiler.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\build\src\CMakeFiles\C_SFML_Compiler.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : src/CMakeFiles/C_SFML_Compiler.dir/depend
 

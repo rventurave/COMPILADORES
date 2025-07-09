@@ -1,7 +1,7 @@
 src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.obj: \
- C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\semantic_analyzer\SemanticAnalyzer.cpp \
- C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\semantic_analyzer\SemanticAnalyzer.h \
- C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/parser/AST.h \
+ C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\semantic_analyzer\SemanticAnalyzer.cpp \
+ C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\semantic_analyzer\SemanticAnalyzer.h \
+ C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/parser/AST.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/vector \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/requires_hosted.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -135,14 +135,14 @@ src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/pstl/execution_defs.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/utility \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_relops.h \
- C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\semantic_analyzer\SymbolTable.h \
+ C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\semantic_analyzer\SymbolTable.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/map \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_tree.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/node_handle.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_map.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_multimap.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/erase_if.h \
- C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/compiler_project/src/utils/ErrorHandler.h \
+ C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/utils/ErrorHandler.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iostream \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ostream \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.h \

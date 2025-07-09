@@ -1,6 +1,0 @@
-int fo() {
-    int x = 5;
-    int y = 10;
-    int suma = x + y;
-    return 0;
-}

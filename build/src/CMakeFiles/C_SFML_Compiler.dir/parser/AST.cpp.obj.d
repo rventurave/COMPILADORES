@@ -1,6 +1,6 @@
 src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.obj: \
- C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\parser\AST.cpp \
- C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\compiler_project\src\parser\AST.h \
+ C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\parser\AST.cpp \
+ C:\Users\Zenbook\Desktop\CUMPUTER-CIENCE\CUMPUTER-SCIENCE\COMPILADORES\prueba\COMPILADORES\src\parser\AST.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/vector \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/requires_hosted.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \

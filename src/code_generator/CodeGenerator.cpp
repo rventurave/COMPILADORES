@@ -10,7 +10,7 @@
 
 // Constructor: Ahora recibe ErrorHandler
 CodeGenerator::CodeGenerator(ErrorHandler& errorHandler)
-    : currentFunctionName(""), errorHandler(errorHandler) { // <--- ¡CONSTRUCTOR MODIFICADO!
+    : currentFunctionName(""), errorHandler(errorHandler) {
     // Constructor
 }
 
@@ -25,7 +25,7 @@ std::string CodeGenerator::visit(ASTNode* node) {
 
     switch(node->type) {
         case ASTNodeType::Program:
-            return ""; // Logic handled in visitProgramNode
+            return ""; // La lógica se maneja en visitProgramNode
         case ASTNodeType::FunctionDeclaration:
             return visitFunctionDeclarationNode(static_cast<FunctionDeclarationNode*>(node));
         case ASTNodeType::VariableDeclaration:
@@ -50,7 +50,7 @@ std::string CodeGenerator::visit(ASTNode* node) {
         case ASTNodeType::Identifier:
             return generateExpression(node);
         default:
-            errorHandler.reportError("Nodo AST desconocido o inesperado en CodeGenerator::visit(): " + std::to_string(static_cast<int>(node->type)), -1, -1); // <--- Acceso a errorHandler
+            errorHandler.reportError("Nodo AST desconocido o inesperado en CodeGenerator::visit(): " + std::to_string(static_cast<int>(node->type)), -1, -1);
             return "";
     }
 }
@@ -59,8 +59,10 @@ std::string CodeGenerator::visit(ASTNode* node) {
 std::string CodeGenerator::visitProgramNode(ProgramNode* node) {
     std::stringstream ss;
 
+    // Generar el encabezado SFML (includes, variables globales, prototipos)
     ss << translator.getSFMLHeader();
 
+    // Generar las declaraciones de funciones C (excepto main)
     for (const auto& func : node->functionDeclarations) {
         if (static_cast<FunctionDeclarationNode*>(func.get())->name != "main") {
             ss << visitFunctionDeclarationNode(static_cast<FunctionDeclarationNode*>(func.get()));
@@ -68,9 +70,11 @@ std::string CodeGenerator::visitProgramNode(ProgramNode* node) {
         }
     }
 
+    // Generar la función run_c_program_simulation que contiene la lógica del programa C
     ss << "void run_c_program_simulation() {" << std::endl;
-    translator.increaseIndent();
-    ss << translator.generateProgramStart();
+    translator.increaseIndent(); // Indentación para el cuerpo de run_c_program_simulation
+
+    ss << translator.generateProgramStart(); // Llama a recordStep("Program Started")
 
     bool main_found = false;
     for (const auto& func : node->functionDeclarations) {
@@ -80,13 +84,13 @@ std::string CodeGenerator::visitProgramNode(ProgramNode* node) {
             std::string previousFunctionName = currentFunctionName;
             currentFunctionName = "main";
 
-            ss << translator.generateFunctionEntry("main", {});
+            ss << translator.generateFunctionEntry("main", {}); // Registra la entrada a main
 
             if (funcDecl->body) {
-                ss << visit(funcDecl->body.get());
+                ss << visit(funcDecl->body.get()); // Visita el cuerpo de main
             }
 
-            ss << translator.generateFunctionExit("main", "");
+            ss << translator.generateFunctionExit("main", ""); // Registra la salida de main
 
             currentFunctionName = previousFunctionName;
             break;
@@ -94,7 +98,7 @@ std::string CodeGenerator::visitProgramNode(ProgramNode* node) {
     }
 
     if (!main_found) {
-        errorHandler.reportWarning("No se encontró la función 'main()' en el código C. Ejecutando sentencias globales si las hay.", -1, -1); // <--- Acceso a errorHandler
+        errorHandler.reportWarning("No se encontró la función 'main()' en el código C. Ejecutando sentencias globales si las hay.", -1, -1);
         ss << translator.generateFunctionEntry("global_scope", {});
         for (const auto& stmt : node->statements) {
             ss << visit(stmt.get());
@@ -102,46 +106,103 @@ std::string CodeGenerator::visitProgramNode(ProgramNode* node) {
         ss << translator.generateFunctionExit("global_scope", "");
     }
 
-    ss << translator.generateProgramEnd();
-    translator.decreaseIndent();
-    ss << "}" << std::endl;
+    ss << translator.generateProgramEnd(); // Llama a recordStep("Program Ended")
+    translator.decreaseIndent(); // Cierra la indentación de run_c_program_simulation
+    ss << "}" << std::endl; // Cierra la función run_c_program_simulation
 
+    // Generar el pie de página SFML (implementaciones de funciones auxiliares)
     ss << translator.getSFMLFooter();
 
+    // Generar la función main de SFML
     ss << std::endl;
     ss << "int main() {" << std::endl;
-    translator.increaseIndent();
-    ss << translator.getCurrentIndent() << "sf::RenderWindow window(sf::VideoMode(900, 600), \"C to SFML Compiler Visualization\");" << std::endl;
+    translator.increaseIndent(); // Indentación para el cuerpo de main SFML
+
+    // Configuración inicial de la ventana SFML
+    ss << translator.getCurrentIndent() << "sf::RenderWindow window(sf::VideoMode(1000, 500), \"C to SFML Compiler Visualization\");" << std::endl;
     ss << translator.getCurrentIndent() << "setupSFML(window);" << std::endl;
     ss << translator.getCurrentIndent() << "window.setFramerateLimit(60);" << std::endl;
 
     ss << std::endl;
-    ss << translator.getCurrentIndent() << "// --- Inicio de la simulación del código C ---" << std::endl;
-    ss << translator.getCurrentIndent() << "run_c_program_simulation(); // Llama a la lógica del programa C simulado" << std::endl;
-    ss << translator.getCurrentIndent() << "// --- Fin de la simulación del código C ---" << std::endl;
+    ss << translator.getCurrentIndent() << "// --- Primera pasada: Ejecutar la simulación C para registrar todos los pasos ---" << std::endl;
+    ss << translator.getCurrentIndent() << "run_c_program_simulation();" << std::endl; // Llama a la lógica del programa C simulado
+    ss << translator.getCurrentIndent() << "currentStepIndex = 0; // Comienza en el primer paso registrado" << std::endl;
     ss << std::endl;
 
-    ss << translator.getCurrentIndent() << "// Mantener la ventana abierta después de que la simulación termine," << std::endl;
-    ss << translator.getCurrentIndent() << "// esperando que el usuario la cierre." << std::endl;
+    ss << translator.getCurrentIndent() << "// --- Bucle principal de eventos SFML para la navegación ---" << std::endl;
     ss << translator.getCurrentIndent() << "while (window.isOpen()) {" << std::endl;
-    translator.increaseIndent();
+    translator.increaseIndent(); // Indentación para el bucle while(window.isOpen())
+
     ss << translator.getCurrentIndent() << "sf::Event event;" << std::endl;
     ss << translator.getCurrentIndent() << "while (window.pollEvent(event)) {" << std::endl;
-    translator.increaseIndent();
+    translator.increaseIndent(); // Indentación para el bucle while(window.pollEvent(event))
+
     ss << translator.getCurrentIndent() << "if (event.type == sf::Event::Closed) {" << std::endl;
     translator.increaseIndent();
     ss << translator.getCurrentIndent() << "window.close();" << std::endl;
     translator.decreaseIndent();
     ss << translator.getCurrentIndent() << "}" << std::endl;
+
+    ss << translator.getCurrentIndent() << "if (event.type == sf::Event::MouseButtonPressed) {" << std::endl;
+    translator.increaseIndent();
+    ss << translator.getCurrentIndent() << "if (event.mouseButton.button == sf::Mouse::Left) {" << std::endl;
+    translator.increaseIndent();
+    ss << translator.getCurrentIndent() << "sf::Vector2i mousePos = sf::Mouse::getPosition(window);" << std::endl;
+    ss << translator.getCurrentIndent() << "const float BUTTON_WIDTH = 100.f;" << std::endl;
+    ss << translator.getCurrentIndent() << "const float BUTTON_HEIGHT = 40.f;" << std::endl; // Definir BUTTON_HEIGHT
+    ss << translator.getCurrentIndent() << "const float BUTTON_Y = window.getSize().y - BUTTON_HEIGHT - 20;" << std::endl; // Usar BUTTON_HEIGHT
+
+    ss << std::endl;
+    ss << translator.getCurrentIndent() << "// Botón Siguiente" << std::endl;
+    ss << translator.getCurrentIndent() << "const float NEXT_BUTTON_X = window.getSize().x / 2 + 10;" << std::endl;
+    ss << translator.getCurrentIndent() << "sf::FloatRect nextButtonBounds(NEXT_BUTTON_X, BUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT);" << std::endl; // Usar BUTTON_HEIGHT
+    ss << translator.getCurrentIndent() << "if (nextButtonBounds.contains(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y))) {" << std::endl;
+    translator.increaseIndent();
+    ss << translator.getCurrentIndent() << "if (currentStepIndex < simulationHistory.size() - 1) {" << std::endl;
+    translator.increaseIndent();
+    ss << translator.getCurrentIndent() << "currentStepIndex++;" << std::endl;
+    ss << translator.getCurrentIndent() << "}" << std::endl; // Cierra if (currentStepIndex < simulationHistory.size() - 1)
     translator.decreaseIndent();
+    ss << translator.getCurrentIndent() << "}" << std::endl; // Cierra if (nextButtonBounds.contains)
+
+    ss << std::endl;
+    ss << translator.getCurrentIndent() << "// Botón Anterior" << std::endl;
+    ss << translator.getCurrentIndent() << "const float PREV_BUTTON_X = window.getSize().x / 2 - BUTTON_WIDTH - 10;" << std::endl;
+    ss << translator.getCurrentIndent() << "sf::FloatRect prevButtonBounds(PREV_BUTTON_X, BUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT);" << std::endl; // Usar BUTTON_HEIGHT
+    ss << translator.getCurrentIndent() << "if (prevButtonBounds.contains(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y))) {" << std::endl;
+    translator.increaseIndent();
+    ss << translator.getCurrentIndent() << "if (currentStepIndex > 0) {" << std::endl;
+    translator.increaseIndent();
+    ss << translator.getCurrentIndent() << "currentStepIndex--;" << std::endl;
+    ss << translator.getCurrentIndent() << "}" << std::endl; // Cierra if (currentStepIndex > 0)
+    translator.decreaseIndent();
+    ss << translator.getCurrentIndent() << "}" << std::endl; // Cierra if (prevButtonBounds.contains)
+
+    translator.decreaseIndent(); // Cierra if (event.mouseButton.button == sf::Mouse::Left)
     ss << translator.getCurrentIndent() << "}" << std::endl;
-    ss << translator.getCurrentIndent() << "sf::sleep(sf::milliseconds(50)); // Pequeño sleep para reducir el uso de CPU" << std::endl;
+
+    translator.decreaseIndent(); // Cierra if (event.type == sf::Event::MouseButtonPressed)
+    ss << translator.getCurrentIndent() << "}" << std::endl;
+
+    translator.decreaseIndent(); // Cierra while (window.pollEvent(event))
+    ss << translator.getCurrentIndent() << "}" << std::endl;
+
+    // Después de procesar los eventos, actualiza y dibuja el paso actual
+    ss << translator.getCurrentIndent() << "if (!simulationHistory.empty()) {" << std::endl;
+    translator.increaseIndent();
+    ss << translator.getCurrentIndent() << "displaySpecificStep(simulationHistory[currentStepIndex]);" << std::endl;
     translator.decreaseIndent();
     ss << translator.getCurrentIndent() << "}" << std::endl;
 
+    ss << translator.getCurrentIndent() << "sf::sleep(sf::milliseconds(10)); // Pequeño sleep para reducir el uso de CPU" << std::endl;
+
+    translator.decreaseIndent(); // Cierra while (window.isOpen())
+    ss << translator.getCurrentIndent() << "}" << std::endl;
+
     ss << translator.getCurrentIndent() << "return 0;" << std::endl;
-    translator.decreaseIndent();
-    ss << "}" << std::endl;
+
+    translator.decreaseIndent(); // Cierra la indentación de main SFML
+    ss << "}" << std::endl; // Cierra la función main SFML
 
     return ss.str();
 }
@@ -168,7 +229,7 @@ std::string CodeGenerator::visitFunctionDeclarationNode(FunctionDeclarationNode*
     if (node->body) {
         ss << visit(node->body.get());
     } else {
-        errorHandler.reportWarning("Cuerpo de función nulo para: " + node->name, -1, -1); // <--- Acceso a errorHandler
+        errorHandler.reportWarning("Cuerpo de función nulo para: " + node->name, -1, -1);
     }
 
     currentFunctionName = previousFunctionName;
@@ -214,7 +275,7 @@ std::string CodeGenerator::visitFunctionCallNode(FunctionCallNode* node) {
     for (size_t i = 0; i < node->arguments.size(); ++i) {
         std::string argExpr = generateExpression(node->arguments[i].get());
         argsCode += argExpr;
-        argsForSFML.push_back({"param_type", argExpr});
+        argsForSFML.push_back({"param_type", argExpr}); // Tipo genérico, el valor es lo importante para la visualización
         if (i < node->arguments.size() - 1) {
             argsCode += ", ";
         }
@@ -308,7 +369,7 @@ std::string CodeGenerator::generateExpression(ASTNode* node) {
                 return funcCall->functionName + "(" + ss_args.str() + ")";
             }
         default:
-            errorHandler.reportError("Tipo de nodo desconocido o no esperado como expresión: " + std::to_string(static_cast<int>(node->type)), -1, -1); // <--- Acceso a errorHandler
+            errorHandler.reportError("Tipo de nodo desconocido o no esperado como expresión: " + std::to_string(static_cast<int>(node->type)), -1, -1);
             return "";
     }
 }
