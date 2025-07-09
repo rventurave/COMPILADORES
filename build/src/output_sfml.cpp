@@ -12,7 +12,7 @@
 sf::RenderWindow* globalWindow = nullptr;
 sf::Font globalFont;
 const float LINE_HEIGHT = 25.f;
-const sf::Color COLOR_DEFAULT_TEXT = sf::Color::White;
+const sf::Color COLOR_DEFAULT_TEXT = sf::Color::Black;
 const sf::Color COLOR_HIGHLIGHT = sf::Color::Yellow;
 const sf::Color COLOR_VARIABLE_DECL = sf::Color::Cyan;
 const sf::Color COLOR_ASSIGNMENT = sf::Color::Magenta;
@@ -20,7 +20,7 @@ const sf::Color COLOR_FUNCTION_CALL = sf::Color::Green;
 const sf::Color COLOR_RETURN = sf::Color::Red;
 const sf::Color COLOR_PRINT = sf::Color::Blue;
 
-// Estado global para la instantánea de memoria actual (usado durante la grabación)
+// Global state for current memory snapshot (used during recording)
 std::vector<std::map<std::string, std::string>> currentStackFrames;
 std::map<std::string, std::string> currentHeapObjects;
 
@@ -35,15 +35,14 @@ std::vector<SimulationStep> simulationHistory;
 extern int currentStepIndex; // Declarado como externo para que CodeGenerator pueda usarlo
 
 // Posiciones y tamaños ajustados para el diseño basado en la imagen
-const float MAIN_AREA_Y_OFFSET = 60.f;
-const float STACK_AREA_X = 50.f;
-const float HEAP_AREA_X = 400.f;
-const float MEMORY_AREA_WIDTH = 300.f;
-const float MEMORY_AREA_HEIGHT = 400.f;
+const float PADDING = 20.f;
+const float BAR_HEIGHT = 100.f;
+const float HEAP_BAR_Y = 50.f;
+const float STACK_BAR_Y = HEAP_BAR_Y + BAR_HEIGHT + PADDING;
+const float MEMORY_BAR_WIDTH = 1000.f - (2 * PADDING);
 
-const float CELL_HEIGHT = 30.f;
-const float CELL_DEFAULT_WIDTH = 80.f;
-const float CELL_PADDING = 5.f;
+const float BOX_HEIGHT = 50.f;
+const float BOX_PADDING = 10.f;
 
 // Prototipos de funciones auxiliares (implementadas en getSFMLFooter)
 void setupSFML(sf::RenderWindow& window);
@@ -58,7 +57,7 @@ void updateHeapObject(const std::string& address, const std::string& value);
 void run_c_program_simulation(); // Prototipo de la función que contiene el código C simulado
 void run_c_program_simulation() {
     // Inicio del programa
-    recordStep("Program Started", COLOR_DEFAULT_TEXT);
+    recordStep("Program Started", sf::Color::Black);
     recordStep("Entering function: main", COLOR_FUNCTION_CALL);
     pushStackFrame();
     {
@@ -78,7 +77,7 @@ void run_c_program_simulation() {
     recordStep("Exiting function: main", COLOR_RETURN);
     popStackFrame();
     // Fin del programa
-    recordStep("Program Ended", COLOR_DEFAULT_TEXT);
+    recordStep("Program Ended", sf::Color::Black);
 }
 
 // Implementaciones de funciones auxiliares
@@ -123,90 +122,90 @@ simulationHistory.push_back(step);
 
 void displaySpecificStep(const SimulationStep& step) {
 if (!globalWindow || !globalWindow->isOpen()) return;
-globalWindow->clear(sf::Color::Black);
-displayText(step.description, 10.f, 10.f, step.color, 18);
+globalWindow->clear(sf::Color(240, 240, 240)); // Fondo gris muy claro para el nuevo diseño
+displayText(step.description, PADDING, PADDING / 2, sf::Color::Black, 18);
 
 // --- Dibujar Área del Heap ---
-displayText("Heap", HEAP_AREA_X + 10, MAIN_AREA_Y_OFFSET - 25, COLOR_DEFAULT_TEXT, 20);
-drawRectangle(HEAP_AREA_X, MAIN_AREA_Y_OFFSET, MEMORY_AREA_WIDTH, MEMORY_AREA_HEIGHT, sf::Color(150, 150, 150, 100), true, 1.f, sf::Color::White);
-float currentHeapY = MAIN_AREA_Y_OFFSET + CELL_PADDING;
+displayText("Heap", PADDING, HEAP_BAR_Y - 25, sf::Color::Black, 20);
+drawRectangle(PADDING, HEAP_BAR_Y, MEMORY_BAR_WIDTH, BAR_HEIGHT, sf::Color(210, 210, 210), true, 2.f, sf::Color::Black);
+float currentHeapX = PADDING + BOX_PADDING;
 for (const auto& objPair : step.heapSnapshot) {
-    displayText(objPair.first + ": " + objPair.second, HEAP_AREA_X + CELL_PADDING, currentHeapY, COLOR_DEFAULT_TEXT);
-    currentHeapY += CELL_HEIGHT + CELL_PADDING;
+    std::string text = objPair.first + ": " + objPair.second;
+    sf::Text tempText(text, globalFont, 16);
+    float boxWidth = std::max(80.f, tempText.getLocalBounds().width + (BOX_PADDING * 2));
+    // Verificar si la caja se sale del área del heap
+    if (currentHeapX + boxWidth > PADDING + MEMORY_BAR_WIDTH - BOX_PADDING) {
+        break;
+    }
+    sf::Color boxColor = sf::Color(255, 255, 150); // Amarillo claro para punteros en heap
+    drawRectangle(currentHeapX, HEAP_BAR_Y + (BAR_HEIGHT - BOX_HEIGHT) / 2, boxWidth, BOX_HEIGHT, boxColor, true, 1.f, sf::Color::Black);
+    displayText(text, currentHeapX + BOX_PADDING, HEAP_BAR_Y + (BAR_HEIGHT - BOX_HEIGHT) / 2 + BOX_PADDING, sf::Color::Black, 16);
+    currentHeapX += boxWidth + BOX_PADDING;
 }
 
 // --- Dibujar Área de la Pila ---
-displayText("Stack", STACK_AREA_X + 10, MAIN_AREA_Y_OFFSET - 25, COLOR_DEFAULT_TEXT, 20);
-drawRectangle(STACK_AREA_X, MAIN_AREA_Y_OFFSET, MEMORY_AREA_WIDTH, MEMORY_AREA_HEIGHT, sf::Color(150, 150, 150, 100), true, 1.f, sf::Color::White);
-float currentStackY = MAIN_AREA_Y_OFFSET + MEMORY_AREA_HEIGHT - CELL_HEIGHT - CELL_PADDING;
-float boxWidth = 0.0f;
-float boxHeight = CELL_HEIGHT;
-// Dibujar los marcos de la pila de abajo hacia arriba (iteración inversa)
-for (int i = static_cast<int>(step.stackSnapshot.size()) - 1; i >= 0; --i) {
-    float currentStackX = STACK_AREA_X + CELL_PADDING;
-    std::string frameLabel = "main";
-    if (i > 0) {
-        frameLabel = "Func" + std::to_string(i + 1);
-    }
-    sf::Color frameLabelColor = sf::Color(100, 200, 100, 200);
-    if (i > 0) frameLabelColor = sf::Color(50, 50, 150, 200);
-    sf::Text frameText(frameLabel, globalFont, 16);
-    float frameLabelWidth = std::max(CELL_DEFAULT_WIDTH, frameText.getLocalBounds().width + CELL_PADDING * 2);
-    drawRectangle(currentStackX, currentStackY, frameLabelWidth, CELL_HEIGHT, frameLabelColor, true, 1.f, sf::Color::Black);
-    displayText(frameLabel, currentStackX + CELL_PADDING, currentStackY + CELL_PADDING, sf::Color::Black, 16);
-    currentStackX += frameLabelWidth + CELL_PADDING;
+displayText("Stack", PADDING, STACK_BAR_Y - 25, sf::Color::Black, 20);
+drawRectangle(PADDING, STACK_BAR_Y, MEMORY_BAR_WIDTH, BAR_HEIGHT, sf::Color(210, 210, 210), true, 2.f, sf::Color::Black);
+float currentStackX = PADDING + BOX_PADDING;
+// Dibujar los marcos de la pila de izquierda a derecha (orden de llamada)
+for (size_t i = 0; i < step.stackSnapshot.size(); ++i) {
+    std::string frameLabel = (i == 0) ? "main" : "Func" + std::to_string(i + 1);
+    // Dibujar el label del marco (main, Func1, etc.)
+    sf::Color frameLabelColor = sf::Color(150, 255, 150); // Verde claro para 'main' y otros labels
+    sf::Text tempFrameText(frameLabel, globalFont, 16);
+    float frameLabelWidth = std::max(80.f, tempFrameText.getLocalBounds().width + (BOX_PADDING * 2));
+    if (currentStackX + frameLabelWidth > PADDING + MEMORY_BAR_WIDTH - BOX_PADDING) break;
+    drawRectangle(currentStackX, STACK_BAR_Y + (BAR_HEIGHT - BOX_HEIGHT) / 2, frameLabelWidth, BOX_HEIGHT, frameLabelColor, true, 1.f, sf::Color::Black);
+    displayText(frameLabel, currentStackX + BOX_PADDING, STACK_BAR_Y + (BAR_HEIGHT - BOX_HEIGHT) / 2 + BOX_PADDING, sf::Color::Black, 16);
+    currentStackX += frameLabelWidth + BOX_PADDING;
+    // Dibujar las variables dentro del marco de la pila
     for (const auto& varPair : step.stackSnapshot[i]) {
         std::string varName = varPair.first;
         std::string varValue = varPair.second;
-        sf::Color varCellColor = sf::Color(200, 200, 200, 200);
-        sf::Color varTextColor = sf::Color::Black;
+        std::string varText = varName;
+        sf::Text tempVarNameText(varName, globalFont, 16);
+        sf::Text tempVarValueText(varValue, globalFont, 16);
+        float nameWidth = tempVarNameText.getLocalBounds().width;
+        float valueWidth = tempVarValueText.getLocalBounds().width;
+        float boxWidth = std::max(80.f, nameWidth + valueWidth + (BOX_PADDING * 3));
+        if (currentStackX + boxWidth > PADDING + MEMORY_BAR_WIDTH - BOX_PADDING) {
+            break;
+        }
+        sf::Color varCellColor;
         if (varValue.rfind("0x", 0) == 0) {
-            varCellColor = sf::Color(255, 255, 100, 200);
-        } else if (varName == "a") {
-            varCellColor = sf::Color(100, 200, 100, 200);
-            varTextColor = sf::Color::Black;
+            varCellColor = sf::Color(255, 255, 150); // Amarillo claro para punteros
+        } else {
+            varCellColor = sf::Color(150, 255, 150); // Verde claro para valores
         }
-        sf::Text nameText(varName, globalFont, 16);
-        sf::Text valueText(varValue, globalFont, 16);
-        float requiredWidth = nameText.getLocalBounds().width + valueText.getLocalBounds().width + (CELL_PADDING * 3);
-        boxWidth = std::max(CELL_DEFAULT_WIDTH, requiredWidth);
-        // Asegurarse de que la caja encaje dentro del área de memoria, simple verificación de desbordamiento
-        if (currentStackX + boxWidth > STACK_AREA_X + MEMORY_AREA_WIDTH - CELL_PADDING) {
-            // Si se desborda, simplemente usa el ancho restante para evitar salirse visualmente de los límites.
-            // Para una solución más robusta, considera envolver a la siguiente línea o hacer los marcos de la pila más altos.
-            boxWidth = (STACK_AREA_X + MEMORY_AREA_WIDTH - CELL_PADDING) - currentStackX;
-            if (boxWidth < CELL_DEFAULT_WIDTH / 2) boxWidth = CELL_DEFAULT_WIDTH / 2;
-        }
-        drawRectangle(currentStackX, currentStackY, boxWidth, CELL_HEIGHT, varCellColor, true, 1.f, sf::Color::Black);
-        displayText(varName, currentStackX + CELL_PADDING, currentStackY + CELL_PADDING, varTextColor, 16);
-        displayText(varValue, currentStackX + nameText.getLocalBounds().width + (CELL_PADDING * 2), currentStackY + CELL_PADDING, varTextColor, 16);
-        currentStackX += boxWidth + CELL_PADDING;
+        drawRectangle(currentStackX, STACK_BAR_Y + (BAR_HEIGHT - BOX_HEIGHT) / 2, boxWidth, BOX_HEIGHT, varCellColor, true, 1.f, sf::Color::Black);
+        displayText(varName, currentStackX + BOX_PADDING, STACK_BAR_Y + (BAR_HEIGHT - BOX_HEIGHT) / 2 + BOX_PADDING, sf::Color::Black, 16);
+        displayText(varValue, currentStackX + BOX_PADDING + nameWidth + BOX_PADDING, STACK_BAR_Y + (BAR_HEIGHT - BOX_HEIGHT) / 2 + BOX_PADDING, sf::Color::Black, 16);
+        currentStackX += boxWidth + BOX_PADDING;
     }
-    currentStackY -= (CELL_HEIGHT + CELL_PADDING); // Mover hacia arriba para el siguiente marco de la pila
 }
 
 // --- Dibujar botones "Previous" y "Next" ---
 const float BUTTON_WIDTH = 100.f;
 const float BUTTON_HEIGHT = 40.f;
-const float BUTTON_Y = globalWindow->getSize().y - BUTTON_HEIGHT - 20;
+const float BUTTON_Y = globalWindow->getSize().y - BUTTON_HEIGHT - PADDING;
 
 // Botón Anterior
-const float PREV_BUTTON_X = globalWindow->getSize().x / 2 - BUTTON_WIDTH - 10;
+const float PREV_BUTTON_X = (globalWindow->getSize().x / 2) - BUTTON_WIDTH - (BOX_PADDING * 2);
 sf::RectangleShape prevButton(sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT));
 prevButton.setPosition(PREV_BUTTON_X, BUTTON_Y);
 prevButton.setFillColor(currentStepIndex > 0 ? sf::Color(70, 70, 70) : sf::Color(30, 30, 30));
 prevButton.setOutlineThickness(2);
-prevButton.setOutlineColor(sf::Color::White);
+prevButton.setOutlineColor(sf::Color::Black);
 globalWindow->draw(prevButton);
 displayText("Previous", PREV_BUTTON_X + (BUTTON_WIDTH - sf::Text("Previous", globalFont, 18).getLocalBounds().width) / 2, BUTTON_Y + (BUTTON_HEIGHT - 18) / 2, sf::Color::White);
 
 // Botón Siguiente
-const float NEXT_BUTTON_X = globalWindow->getSize().x / 2 + 10;
+const float NEXT_BUTTON_X = (globalWindow->getSize().x / 2) + (BOX_PADDING * 2);
 sf::RectangleShape nextButton(sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT));
 nextButton.setPosition(NEXT_BUTTON_X, BUTTON_Y);
 nextButton.setFillColor(currentStepIndex < simulationHistory.size() - 1 ? sf::Color(70, 70, 70) : sf::Color(30, 30, 30));
 nextButton.setOutlineThickness(2);
-nextButton.setOutlineColor(sf::Color::White);
+nextButton.setOutlineColor(sf::Color::Black);
 globalWindow->draw(nextButton);
 displayText("Next", NEXT_BUTTON_X + (BUTTON_WIDTH - sf::Text("Next", globalFont, 18).getLocalBounds().width) / 2, BUTTON_Y + (BUTTON_HEIGHT - 18) / 2, sf::Color::White);
 globalWindow->display();

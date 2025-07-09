@@ -1,5 +1,5 @@
 // src/code_generator/CodeGenerator.cpp
-#include "CodeGenerator.h"
+#include "CodeGenerator.h" // Incluye CodeGenerator.h, que a su vez incluye SFMLTranslator.h
 #include <iostream>
 #include <vector>
 #include <utility> // Para std::move

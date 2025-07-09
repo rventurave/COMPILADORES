@@ -62,3 +62,15 @@ Sigue estos pasos para construir el compilador a partir de su código fuente.
 ```bash
 git clone https://github.com/rventurave/COMPILADORES.git
 cd COMPILADORES
+
+## Construcción del Proyecto (el Compilador)
+
+Sigue estos pasos para construir el compilador a partir de su código fuente.
+
+---
+
+### 2. Crea el directorio de build
+
+```bash
+mkdir build
+cd build
