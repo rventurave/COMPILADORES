@@ -5,5 +5,5 @@ int main() {
     int c = 3;
     int* p = &a;
     int* q = &b;
-    c = b;
+    p = q;
 }

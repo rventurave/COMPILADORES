@@ -81,9 +81,9 @@ void run_c_program_simulation() {
         std::ostringstream oss_q;
         oss_q << q;
         updateStackFrame("q", oss_q.str());
-        recordStep("Assigning to c = " + std::to_string(b), COLOR_ASSIGNMENT);
-        c = b;
-        updateStackFrame("c", std::to_string(b));
+        recordStep("Assigning to p = " + std::to_string(q), COLOR_ASSIGNMENT);
+        p = q;
+        updateStackFrame("p", std::to_string(q));
     }
     recordStep("Exiting function: main", COLOR_RETURN);
     popStackFrame();

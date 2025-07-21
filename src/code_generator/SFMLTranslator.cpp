@@ -344,7 +344,20 @@ std::string SFMLTranslator::generateVariableDeclaration(const std::string& typeN
 
 std::string SFMLTranslator::generateAssignment(const std::string& identifierName, const std::string& expressionCode) {
     std::stringstream ss;
-    ss << getCurrentIndent() << "recordStep(\"Assigning to " << identifierName << " = \" + std::to_string(" << expressionCode << "), COLOR_ASSIGNMENT);" << std::endl;
+    // Detecta si la expresión es una desreferenciación de puntero
+
+    cout <<"generateAsss.. " << expressionCode << endl;
+    if (expressionCode.find("*") == 1) {
+        cout << "-----entro -----" << endl;
+        // Ejemplo: expressionCode = (*p)
+        ss << getCurrentIndent()
+           << "recordStep(\"Assigning to " << identifierName << " = *"
+           << expressionCode.substr(2, expressionCode.length() - 3) // Extrae el nombre del puntero (p)
+           << " (valor: \" + std::to_string" << expressionCode << " + \")\", COLOR_ASSIGNMENT);" << std::endl;
+    } else {
+        ss << getCurrentIndent()
+           << "recordStep(\"Assigning to " << identifierName << " = \" + std::to_string(" << expressionCode << "), COLOR_ASSIGNMENT);" << std::endl;
+    }
     ss << getCurrentIndent() << identifierName << " = " << expressionCode << ";" << std::endl;
     return ss.str();
 }
