@@ -328,13 +328,20 @@ std::string SFMLTranslator::generateVariableDeclaration(const std::string& typeN
     std::stringstream ss;
     ss << getCurrentIndent() << "recordStep(\"Declaring: " << typeName << " " << variableName << (initialValue.empty() ? "" : " = " + initialValue) << "\", COLOR_VARIABLE_DECL);" << std::endl;
     ss << getCurrentIndent() << typeName << " " << variableName << " = " << initialValue << ";" << std::endl;
-
+    //cout << "-----------------valor <<<<<<<<<" << typeName << " " << variableName<< " " <<initialValue << endl;
     // Si es puntero y el valor inicial contiene '&'
     if (typeName == "int*" && initialValue.find("&") != std::string::npos) {
         ss << getCurrentIndent() << "std::ostringstream oss_" << variableName << ";" << std::endl;
         ss << getCurrentIndent() << "oss_" << variableName << " << " << variableName << ";" << std::endl;
         //ss << getCurrentIndent() << "updateStackFrame(\"" << variableName << "\", oss_" << variableName << ".str());" << std::endl;
-    } else {
+    } 
+    /*
+    else if(variableName.find("ptr") != std::string::npos && initialValue.find("ptr") != std::string::npos){
+        cout << "**entra**"<< endl;
+        ss << getCurrentIndent() << "std::ostringstream oss_" << variableName << ";" << std::endl;
+        ss << getCurrentIndent() << "oss_" << initialValue<<"<< static_cast<const void*>("<<initialValue<<")" << ";" << std::endl;
+    }*/
+    else {
         cout << "tipo: " << typeName << " y nombre: " << variableName << " initialvalue " << initialValue << endl;
         //ss << getCurrentIndent() << "updateStackFrame(\"" << variableName << "\", std::to_string(" << variableName << "));" << std::endl;
     }
@@ -346,15 +353,37 @@ std::string SFMLTranslator::generateAssignment(const std::string& identifierName
     std::stringstream ss;
     // Detecta si la expresión es una desreferenciación de puntero
 
-    cout <<"generateAsss.. " << expressionCode << endl;
+    //cout <<"generateAsss.. " << expressionCode << endl;
     if (expressionCode.find("*") == 1) {
-        cout << "-----entro -----" << endl;
+        //cout << "-----entro -----" << endl;
         // Ejemplo: expressionCode = (*p)
+        cout << "la ------expresion co....." <<expressionCode << endl;
         ss << getCurrentIndent()
            << "recordStep(\"Assigning to " << identifierName << " = *"
            << expressionCode.substr(2, expressionCode.length() - 3) // Extrae el nombre del puntero (p)
            << " (valor: \" + std::to_string" << expressionCode << " + \")\", COLOR_ASSIGNMENT);" << std::endl;
-    } else {
+    } 
+    
+    else if(identifierName.find("ptr") != std::string::npos && expressionCode.find("ptr") != std::string::npos){
+      //  cout << "ambos son punteros" << endl;
+       // cout << "**entra**"<< endl;
+        ss << getCurrentIndent() << "std::ostringstream _oss_" << expressionCode << ";" << std::endl;
+        ss << getCurrentIndent() << "_oss_" << expressionCode<<"<< static_cast<const void*>("<<expressionCode<<")" << ";" << std::endl;
+        ss << getCurrentIndent()
+           << "recordStep(\"Assigning to " << identifierName << " = "
+           << expressionCode // Extrae el nombre del puntero (p)
+           << " (valor: \" +"<< "_oss_"<<expressionCode <<".str()" << "+ \")\", COLOR_ASSIGNMENT);" << std::endl;
+    }
+
+    else if(identifierName.find("ptr") != std::string::npos && expressionCode.find("&") != std::string::npos){
+       // cout << "ambos son punteros" << endl;
+       // cout << "**entra**"<< endl;
+        ss << getCurrentIndent()
+           << "recordStep(\"Assigning to " << identifierName << " = "
+           << expressionCode // Extrae el nombre del puntero (p)
+           << "\", COLOR_VARIABLE_DECL);" << std::endl;
+    }
+    else {
         ss << getCurrentIndent()
            << "recordStep(\"Assigning to " << identifierName << " = \" + std::to_string(" << expressionCode << "), COLOR_ASSIGNMENT);" << std::endl;
     }
@@ -444,8 +473,17 @@ std::string SFMLTranslator::generateVariableUpdate(const std::string& variableNa
     std::stringstream ss;
     if (valueCode.find("&") != std::string::npos) {
         ss << getCurrentIndent() << "updateStackFrame(\"" << variableName << "\", oss_" << variableName << ".str());" << std::endl;
-    } else {
-        cout<< " y nombre: " << variableName << " initialvalue " << valueCode << endl;
+    } 
+    else if(variableName.find("ptr") != std::string::npos && valueCode.find("ptr") != std::string::npos){
+        cout << "ambos son punteros" << endl;
+        cout << variableName << " ----" << valueCode << endl;
+        cout << "**entra**"<< endl;
+        ss << getCurrentIndent()
+           << "updateStackFrame(\"" << variableName << "\", _oss_" << valueCode << ".str());" << std::endl;
+    }
+    else {
+        
+        //cout<< " y nombre: " << variableName << " initialvalue " << valueCode << endl;
         ss << getCurrentIndent() << "updateStackFrame(\"" << variableName << "\", std::to_string(" << valueCode << "));" << std::endl;
     }
     //ss << getCurrentIndent() << "updateStackFrame(\"" << variableName << "\", std::to_string(" << valueCode << "));" << std::endl;
