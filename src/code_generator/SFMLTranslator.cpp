@@ -3,6 +3,8 @@
 #include <iostream>
 #include <utility> // Para std::move en algunos lugares si fuera necesario
 #include <algorithm> // Para std::max
+#include <iostream>
+using namespace std;
 
 SFMLTranslator::SFMLTranslator() : indentLevel(0) {
     // Constructor
@@ -324,15 +326,17 @@ std::string SFMLTranslator::generateFunctionCall(const std::string& functionName
 
 std::string SFMLTranslator::generateVariableDeclaration(const std::string& typeName, const std::string& variableName, const std::string& initialValue) {
     std::stringstream ss;
+    ss << getCurrentIndent() << "recordStep(\"Declaring: " << typeName << " " << variableName << (initialValue.empty() ? "" : " = " + initialValue) << "\", COLOR_VARIABLE_DECL);" << std::endl;
     ss << getCurrentIndent() << typeName << " " << variableName << " = " << initialValue << ";" << std::endl;
 
-    // Si es puntero y el valor inicial es una dirección (&...)
-    if (typeName == "int*" && initialValue.find('&') == 0) {
+    // Si es puntero y el valor inicial contiene '&'
+    if (typeName == "int*" && initialValue.find("&") != std::string::npos) {
         ss << getCurrentIndent() << "std::ostringstream oss_" << variableName << ";" << std::endl;
-        ss << getCurrentIndent() << "oss_" << variableName << " << " << initialValue << ";" << std::endl;
-        ss << getCurrentIndent() << "updateStackFrame(\"" << variableName << "\", oss_" << variableName << ".str());" << std::endl;
+        ss << getCurrentIndent() << "oss_" << variableName << " << " << variableName << ";" << std::endl;
+        //ss << getCurrentIndent() << "updateStackFrame(\"" << variableName << "\", oss_" << variableName << ".str());" << std::endl;
     } else {
-        ss << getCurrentIndent() << "updateStackFrame(\"" << variableName << "\", std::to_string(" << variableName << "));" << std::endl;
+        cout << "tipo: " << typeName << " y nombre: " << variableName << " initialvalue " << initialValue << endl;
+        //ss << getCurrentIndent() << "updateStackFrame(\"" << variableName << "\", std::to_string(" << variableName << "));" << std::endl;
     }
 
     return ss.str();
@@ -425,7 +429,13 @@ std::string SFMLTranslator::generateFunctionExit(const std::string& functionName
 
 std::string SFMLTranslator::generateVariableUpdate(const std::string& variableName, const std::string& valueCode) {
     std::stringstream ss;
-    ss << getCurrentIndent() << "updateStackFrame(\"" << variableName << "\", std::to_string(" << valueCode << "));" << std::endl;
+    if (valueCode.find("&") != std::string::npos) {
+        ss << getCurrentIndent() << "updateStackFrame(\"" << variableName << "\", oss_" << variableName << ".str());" << std::endl;
+    } else {
+        cout<< " y nombre: " << variableName << " initialvalue " << valueCode << endl;
+        ss << getCurrentIndent() << "updateStackFrame(\"" << variableName << "\", std::to_string(" << valueCode << "));" << std::endl;
+    }
+    //ss << getCurrentIndent() << "updateStackFrame(\"" << variableName << "\", std::to_string(" << valueCode << "));" << std::endl;
     return ss.str();
 }
 

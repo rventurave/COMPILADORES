@@ -35,6 +35,15 @@ int main(int argc, char* argv[]) {
     // 1. Lexical Analysis
     Lexer lexer(sourceCode, errorHandler); // Pasa errorHandler al lexer
     std::vector<Token> tokens = lexer.tokenize();
+    // --- DEBUG: Imprimir tokens léxicos ---
+    std::cout << "\n=== TOKENS GENERADOS ===" << std::endl;
+    for (const auto& token : tokens) {
+        std::cout << "Token: '" << token.value 
+                << "' | Tipo: " << static_cast<int>(token.type)
+                << " | Línea: " << token.line
+                << " Col: " << token.column << std::endl;
+    }
+    std::cout << "=========================\n" << std::endl;
 
     if (errorHandler.hasErrors()) {
         errorHandler.printMessages();

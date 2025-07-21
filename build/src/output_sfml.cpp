@@ -62,23 +62,28 @@ void run_c_program_simulation() {
     recordStep("Entering function: main", COLOR_FUNCTION_CALL);
     pushStackFrame();
     {
-        
-        recordStep("Declaring: int a = 5", COLOR_VARIABLE_DECL);
-        int a = 5;
-        updateStackFrame("a", std::to_string(a));
-        updateStackFrame("a", std::to_string(5));
-
-        updateStackFrame("b", std::to_string(10));
-        int* ptr = (&a);
-
-        // CORREGIDO: Mostrar dirección de memoria como string
-        std::ostringstream oss_ptr;
-        oss_ptr << ptr;
-        updateStackFrame("ptr", oss_ptr.str());
-
-        std::ostringstream oss_addr;
-        oss_addr << &a;
-        updateStackFrame("ptr", oss_addr.str());
+        recordStep("Declaring: int a = 1", COLOR_VARIABLE_DECL);
+        int a = 1;
+        updateStackFrame("a", std::to_string(1));
+        recordStep("Declaring: int b = 2", COLOR_VARIABLE_DECL);
+        int b = 2;
+        updateStackFrame("b", std::to_string(2));
+        recordStep("Declaring: int c = 3", COLOR_VARIABLE_DECL);
+        int c = 3;
+        updateStackFrame("c", std::to_string(3));
+        recordStep("Declaring: int* p = (&a)", COLOR_VARIABLE_DECL);
+        int* p = (&a);
+        std::ostringstream oss_p;
+        oss_p << p;
+        updateStackFrame("p", oss_p.str());
+        recordStep("Declaring: int* q = (&b)", COLOR_VARIABLE_DECL);
+        int* q = (&b);
+        std::ostringstream oss_q;
+        oss_q << q;
+        updateStackFrame("q", oss_q.str());
+        recordStep("Assigning to c = " + std::to_string(100), COLOR_ASSIGNMENT);
+        c = 100;
+        updateStackFrame("c", std::to_string(100));
     }
     recordStep("Exiting function: main", COLOR_RETURN);
     popStackFrame();
