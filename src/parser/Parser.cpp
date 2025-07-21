@@ -519,9 +519,15 @@ std::unique_ptr<ASTNode> Parser::parsePrimaryExpression() {
             }
             return std::make_unique<UnaryExpressionNode>(op.value, std::move(operand));
         }
-        case TokenType::MULTIPLY: // Ya maneja punteros en tipos, pero aquí sería para desreferenciar
-            // Si quieres soportar *x como expresión, puedes agregarlo aquí.
-            break;
+        case TokenType::MULTIPLY: { // Desreferenciación de puntero: *p
+            Token op = consume(); // consume '*'
+            auto operand = parsePrimaryExpression();
+            if (!operand) {
+                errorHandler.reportError("Operando esperado para operador unario '*'.", peek().line, peek().column);
+                return nullptr;
+            }
+            return std::make_unique<UnaryExpressionNode>(op.value, std::move(operand));
+        }
         case TokenType::AMPERSAND: { // NUEVO: operador '&'
             Token op = consume(); // consume '&'
             auto operand = parsePrimaryExpression();
