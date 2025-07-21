@@ -215,6 +215,13 @@ std::unique_ptr<ASTNode> Parser::parseDeclarationStatement() {
     Token typeToken = expect(TokenType::KEYWORD_INT, "Se esperaba el tipo 'int' para la declaración de variable.");
     if (typeToken.type == TokenType::UNKNOWN) return nullptr;
 
+    // NUEVO: Verificar si el siguiente token es '*'
+    std::string typeName = typeToken.value;
+    if (peek().type == TokenType::MULTIPLY) {
+        consume(); // Consume '*'
+        typeName += "*";
+    }
+
     Token varName = expect(TokenType::IDENTIFIER, "Se esperaba un nombre de variable.");
     if (varName.type == TokenType::UNKNOWN) return nullptr;
 
@@ -224,7 +231,7 @@ std::unique_ptr<ASTNode> Parser::parseDeclarationStatement() {
     }
 
     expect(TokenType::SEMICOLON, "Se esperaba ';' después de la declaración de variable.");
-    return std::make_unique<VariableDeclarationNode>(typeToken.value, varName.value, std::move(initializer));
+    return std::make_unique<VariableDeclarationNode>(typeName, varName.value, std::move(initializer));
 }
 
 // <assignmentStatement> ::= IDENTIFIER "=" <expression>
@@ -508,6 +515,18 @@ std::unique_ptr<ASTNode> Parser::parsePrimaryExpression() {
             if (!operand) {
                 // CORRECCIÓN AQUÍ: Orden de argumentos
                 errorHandler.reportError("Operando esperado para operador unario '-'.", peek().line, peek().column);
+                return nullptr;
+            }
+            return std::make_unique<UnaryExpressionNode>(op.value, std::move(operand));
+        }
+        case TokenType::MULTIPLY: // Ya maneja punteros en tipos, pero aquí sería para desreferenciar
+            // Si quieres soportar *x como expresión, puedes agregarlo aquí.
+            break;
+        case TokenType::AMPERSAND: { // NUEVO: operador '&'
+            Token op = consume(); // consume '&'
+            auto operand = parsePrimaryExpression();
+            if (!operand) {
+                errorHandler.reportError("Operando esperado para operador unario '&'.", peek().line, peek().column);
                 return nullptr;
             }
             return std::make_unique<UnaryExpressionNode>(op.value, std::move(operand));

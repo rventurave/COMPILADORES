@@ -8,16 +8,16 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/code_generator/CodeGenerator.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.obj" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.obj.d"
-  "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/code_generator/SFMLTranslator.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.obj" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.obj.d"
-  "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/lexer/Lexer.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.obj" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.obj.d"
-  "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/lexer/Token.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.obj" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.obj.d"
-  "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/main.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.obj" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.obj.d"
-  "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/parser/AST.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.obj" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.obj.d"
-  "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/parser/Parser.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.obj" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.obj.d"
-  "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/semantic_analyzer/SemanticAnalyzer.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.obj" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.obj.d"
-  "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/semantic_analyzer/SymbolTable.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.obj" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.obj.d"
-  "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/utils/ErrorHandler.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.obj" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.obj.d"
+  "/home/asus/Vídeos/COMPILADORES/src/code_generator/CodeGenerator.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.o" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.o.d"
+  "/home/asus/Vídeos/COMPILADORES/src/code_generator/SFMLTranslator.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.o" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.o.d"
+  "/home/asus/Vídeos/COMPILADORES/src/lexer/Lexer.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.o" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.o.d"
+  "/home/asus/Vídeos/COMPILADORES/src/lexer/Token.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.o" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.o.d"
+  "/home/asus/Vídeos/COMPILADORES/src/main.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.o" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.o.d"
+  "/home/asus/Vídeos/COMPILADORES/src/parser/AST.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.o" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.o.d"
+  "/home/asus/Vídeos/COMPILADORES/src/parser/Parser.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.o" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.o.d"
+  "/home/asus/Vídeos/COMPILADORES/src/semantic_analyzer/SemanticAnalyzer.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.o" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.o.d"
+  "/home/asus/Vídeos/COMPILADORES/src/semantic_analyzer/SymbolTable.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.o" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.o.d"
+  "/home/asus/Vídeos/COMPILADORES/src/utils/ErrorHandler.cpp" "src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.o" "gcc" "src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

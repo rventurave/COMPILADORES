@@ -7,6 +7,7 @@
 #include <vector>
 #include <map>
 #include <algorithm>
+#include <sstream>
 
 // Objetos y constantes globales de SFML
 sf::RenderWindow* globalWindow = nullptr;
@@ -61,18 +62,23 @@ void run_c_program_simulation() {
     recordStep("Entering function: main", COLOR_FUNCTION_CALL);
     pushStackFrame();
     {
+        
         recordStep("Declaring: int a = 5", COLOR_VARIABLE_DECL);
         int a = 5;
+        updateStackFrame("a", std::to_string(a));
         updateStackFrame("a", std::to_string(5));
-        recordStep("Declaring: int b = 10", COLOR_VARIABLE_DECL);
-        int b = 10;
+
         updateStackFrame("b", std::to_string(10));
-        recordStep("Declaring: int sum = (a + b)", COLOR_VARIABLE_DECL);
-        int sum = (a + b);
-        updateStackFrame("sum", std::to_string((a + b)));
-        recordStep("Declaring: int sum2 = ((a + b) + 5)", COLOR_VARIABLE_DECL);
-        int sum2 = ((a + b) + 5);
-        updateStackFrame("sum2", std::to_string(((a + b) + 5)));
+        int* ptr = (&a);
+
+        // CORREGIDO: Mostrar dirección de memoria como string
+        std::ostringstream oss_ptr;
+        oss_ptr << ptr;
+        updateStackFrame("ptr", oss_ptr.str());
+
+        std::ostringstream oss_addr;
+        oss_addr << &a;
+        updateStackFrame("ptr", oss_addr.str());
     }
     recordStep("Exiting function: main", COLOR_RETURN);
     popStackFrame();

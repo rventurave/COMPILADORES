@@ -122,6 +122,7 @@ void Lexer::scanToken() {
             case '-': tokens.push_back(makeToken(TokenType::MINUS, "-")); break;
             case '*': tokens.push_back(makeToken(TokenType::MULTIPLY, "*")); break;
             case '/': tokens.push_back(makeToken(TokenType::DIVIDE, "/")); break;
+            case '&': tokens.push_back(makeToken(TokenType::AMPERSAND, "&")); break;
             case '=':
                 if (peek() == '=') {
                     advance();

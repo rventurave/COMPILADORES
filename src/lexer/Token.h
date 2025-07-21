@@ -15,6 +15,8 @@ enum class TokenType {
     // Literales
     INTEGER_LITERAL, STRING_LITERAL,
 
+    //
+    AMPERSAND,
     // Operadores
     PLUS, MINUS, MULTIPLY, DIVIDE, ASSIGN,
     LESS_THAN, GREATER_THAN, EQUAL_EQUAL, LESS_EQUAL, GREATER_EQUAL, NOT_EQUAL,

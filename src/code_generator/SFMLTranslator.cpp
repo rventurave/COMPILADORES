@@ -36,6 +36,7 @@ std::string SFMLTranslator::getSFMLHeader() {
     ss << "#include <vector>" << std::endl;
     ss << "#include <map>" << std::endl;
     ss << "#include <algorithm>" << std::endl; // Para std::max
+    ss << "#include <sstream>" << std::endl;
 
     ss << std::endl;
     ss << "// Objetos y constantes globales de SFML" << std::endl;
@@ -323,12 +324,17 @@ std::string SFMLTranslator::generateFunctionCall(const std::string& functionName
 
 std::string SFMLTranslator::generateVariableDeclaration(const std::string& typeName, const std::string& variableName, const std::string& initialValue) {
     std::stringstream ss;
-    ss << getCurrentIndent() << "recordStep(\"Declaring: " << typeName << " " << variableName << (initialValue.empty() ? "" : " = " + initialValue) << "\", COLOR_VARIABLE_DECL);" << std::endl;
-    ss << getCurrentIndent() << typeName << " " << variableName;
-    if (!initialValue.empty()) {
-        ss << " = " << initialValue;
+    ss << getCurrentIndent() << typeName << " " << variableName << " = " << initialValue << ";" << std::endl;
+
+    // Si es puntero y el valor inicial es una dirección (&...)
+    if (typeName == "int*" && initialValue.find('&') == 0) {
+        ss << getCurrentIndent() << "std::ostringstream oss_" << variableName << ";" << std::endl;
+        ss << getCurrentIndent() << "oss_" << variableName << " << " << initialValue << ";" << std::endl;
+        ss << getCurrentIndent() << "updateStackFrame(\"" << variableName << "\", oss_" << variableName << ".str());" << std::endl;
+    } else {
+        ss << getCurrentIndent() << "updateStackFrame(\"" << variableName << "\", std::to_string(" << variableName << "));" << std::endl;
     }
-    ss << ";" << std::endl;
+
     return ss.str();
 }
 

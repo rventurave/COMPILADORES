@@ -2,10 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "src/C_SFML_Compiler.exe"
-		},
-		{
-			"path" : "src/C_SFML_Compiler.pdb"
+			"path" : "src/C_SFML_Compiler"
 		}
 	],
 	"backtrace" : 1,
@@ -29,19 +26,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 5,
+				"line" : 4,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 28,
+				"line" : 27,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 19,
+				"line" : 18,
 				"parent" : 0
 			}
 		]
@@ -52,35 +49,30 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu++17"
+					"fragment" : "-g -std=gnu++17 -fPIE"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/lexer"
+					"path" : "/home/asus/V\u00eddeos/COMPILADORES/src/lexer"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/parser"
+					"path" : "/home/asus/V\u00eddeos/COMPILADORES/src/parser"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/semantic_analyzer"
+					"path" : "/home/asus/V\u00eddeos/COMPILADORES/src/semantic_analyzer"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/code_generator"
+					"path" : "/home/asus/V\u00eddeos/COMPILADORES/src/code_generator"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/utils"
-				},
-				{
-					"backtrace" : 2,
-					"isSystem" : true,
-					"path" : "C:/SFML-2.6.1/include"
+					"path" : "/home/asus/V\u00eddeos/COMPILADORES/src/utils"
 				}
 			],
 			"language" : "CXX",
@@ -117,34 +109,34 @@
 				"role" : "flags"
 			},
 			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
 				"backtrace" : 2,
-				"fragment" : "C:\\SFML-2.6.1\\lib\\libsfml-graphics-d.a",
+				"fragment" : "/usr/lib64/libsfml-graphics.so.2.6.2",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\SFML-2.6.1\\lib\\libsfml-window-d.a",
+				"fragment" : "/usr/lib64/libsfml-window.so.2.6.2",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\SFML-2.6.1\\lib\\libsfml-audio-d.a",
+				"fragment" : "/usr/lib64/libsfml-audio.so.2.6.2",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\SFML-2.6.1\\lib\\libsfml-system-d.a",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"fragment" : "/usr/lib64/libsfml-system.so.2.6.2",
 				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "C_SFML_Compiler",
-	"nameOnDisk" : "C_SFML_Compiler.exe",
+	"nameOnDisk" : "C_SFML_Compiler",
 	"paths" : 
 	{
 		"build" : "src",

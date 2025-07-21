@@ -1,62 +1,62 @@
 [
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\main.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\main.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/main.cpp",
-  "output": "src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.obj"
+  "directory": "/home/asus/Vídeos/COMPILADORES/build/src",
+  "command": "/usr/bin/g++  -I/home/asus/Vídeos/COMPILADORES/src/lexer -I/home/asus/Vídeos/COMPILADORES/src/parser -I/home/asus/Vídeos/COMPILADORES/src/semantic_analyzer -I/home/asus/Vídeos/COMPILADORES/src/code_generator -I/home/asus/Vídeos/COMPILADORES/src/utils -g -std=gnu++17 -fPIE -o CMakeFiles/C_SFML_Compiler.dir/main.cpp.o -c /home/asus/Vídeos/COMPILADORES/src/main.cpp",
+  "file": "/home/asus/Vídeos/COMPILADORES/src/main.cpp",
+  "output": "src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.o"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\lexer\\Lexer.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\lexer\\Lexer.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/lexer/Lexer.cpp",
-  "output": "src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.obj"
+  "directory": "/home/asus/Vídeos/COMPILADORES/build/src",
+  "command": "/usr/bin/g++  -I/home/asus/Vídeos/COMPILADORES/src/lexer -I/home/asus/Vídeos/COMPILADORES/src/parser -I/home/asus/Vídeos/COMPILADORES/src/semantic_analyzer -I/home/asus/Vídeos/COMPILADORES/src/code_generator -I/home/asus/Vídeos/COMPILADORES/src/utils -g -std=gnu++17 -fPIE -o CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.o -c /home/asus/Vídeos/COMPILADORES/src/lexer/Lexer.cpp",
+  "file": "/home/asus/Vídeos/COMPILADORES/src/lexer/Lexer.cpp",
+  "output": "src/CMakeFiles/C_SFML_Compiler.dir/lexer/Lexer.cpp.o"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\lexer\\Token.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\lexer\\Token.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/lexer/Token.cpp",
-  "output": "src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.obj"
+  "directory": "/home/asus/Vídeos/COMPILADORES/build/src",
+  "command": "/usr/bin/g++  -I/home/asus/Vídeos/COMPILADORES/src/lexer -I/home/asus/Vídeos/COMPILADORES/src/parser -I/home/asus/Vídeos/COMPILADORES/src/semantic_analyzer -I/home/asus/Vídeos/COMPILADORES/src/code_generator -I/home/asus/Vídeos/COMPILADORES/src/utils -g -std=gnu++17 -fPIE -o CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.o -c /home/asus/Vídeos/COMPILADORES/src/lexer/Token.cpp",
+  "file": "/home/asus/Vídeos/COMPILADORES/src/lexer/Token.cpp",
+  "output": "src/CMakeFiles/C_SFML_Compiler.dir/lexer/Token.cpp.o"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\parser\\AST.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\parser\\AST.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/parser/AST.cpp",
-  "output": "src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.obj"
+  "directory": "/home/asus/Vídeos/COMPILADORES/build/src",
+  "command": "/usr/bin/g++  -I/home/asus/Vídeos/COMPILADORES/src/lexer -I/home/asus/Vídeos/COMPILADORES/src/parser -I/home/asus/Vídeos/COMPILADORES/src/semantic_analyzer -I/home/asus/Vídeos/COMPILADORES/src/code_generator -I/home/asus/Vídeos/COMPILADORES/src/utils -g -std=gnu++17 -fPIE -o CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.o -c /home/asus/Vídeos/COMPILADORES/src/parser/AST.cpp",
+  "file": "/home/asus/Vídeos/COMPILADORES/src/parser/AST.cpp",
+  "output": "src/CMakeFiles/C_SFML_Compiler.dir/parser/AST.cpp.o"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\parser\\Parser.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\parser\\Parser.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/parser/Parser.cpp",
-  "output": "src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.obj"
+  "directory": "/home/asus/Vídeos/COMPILADORES/build/src",
+  "command": "/usr/bin/g++  -I/home/asus/Vídeos/COMPILADORES/src/lexer -I/home/asus/Vídeos/COMPILADORES/src/parser -I/home/asus/Vídeos/COMPILADORES/src/semantic_analyzer -I/home/asus/Vídeos/COMPILADORES/src/code_generator -I/home/asus/Vídeos/COMPILADORES/src/utils -g -std=gnu++17 -fPIE -o CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.o -c /home/asus/Vídeos/COMPILADORES/src/parser/Parser.cpp",
+  "file": "/home/asus/Vídeos/COMPILADORES/src/parser/Parser.cpp",
+  "output": "src/CMakeFiles/C_SFML_Compiler.dir/parser/Parser.cpp.o"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\semantic_analyzer\\SemanticAnalyzer.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\semantic_analyzer\\SemanticAnalyzer.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/semantic_analyzer/SemanticAnalyzer.cpp",
-  "output": "src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.obj"
+  "directory": "/home/asus/Vídeos/COMPILADORES/build/src",
+  "command": "/usr/bin/g++  -I/home/asus/Vídeos/COMPILADORES/src/lexer -I/home/asus/Vídeos/COMPILADORES/src/parser -I/home/asus/Vídeos/COMPILADORES/src/semantic_analyzer -I/home/asus/Vídeos/COMPILADORES/src/code_generator -I/home/asus/Vídeos/COMPILADORES/src/utils -g -std=gnu++17 -fPIE -o CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.o -c /home/asus/Vídeos/COMPILADORES/src/semantic_analyzer/SemanticAnalyzer.cpp",
+  "file": "/home/asus/Vídeos/COMPILADORES/src/semantic_analyzer/SemanticAnalyzer.cpp",
+  "output": "src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SemanticAnalyzer.cpp.o"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\semantic_analyzer\\SymbolTable.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\semantic_analyzer\\SymbolTable.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/semantic_analyzer/SymbolTable.cpp",
-  "output": "src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.obj"
+  "directory": "/home/asus/Vídeos/COMPILADORES/build/src",
+  "command": "/usr/bin/g++  -I/home/asus/Vídeos/COMPILADORES/src/lexer -I/home/asus/Vídeos/COMPILADORES/src/parser -I/home/asus/Vídeos/COMPILADORES/src/semantic_analyzer -I/home/asus/Vídeos/COMPILADORES/src/code_generator -I/home/asus/Vídeos/COMPILADORES/src/utils -g -std=gnu++17 -fPIE -o CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.o -c /home/asus/Vídeos/COMPILADORES/src/semantic_analyzer/SymbolTable.cpp",
+  "file": "/home/asus/Vídeos/COMPILADORES/src/semantic_analyzer/SymbolTable.cpp",
+  "output": "src/CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.o"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\code_generator\\CodeGenerator.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\code_generator\\CodeGenerator.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/code_generator/CodeGenerator.cpp",
-  "output": "src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.obj"
+  "directory": "/home/asus/Vídeos/COMPILADORES/build/src",
+  "command": "/usr/bin/g++  -I/home/asus/Vídeos/COMPILADORES/src/lexer -I/home/asus/Vídeos/COMPILADORES/src/parser -I/home/asus/Vídeos/COMPILADORES/src/semantic_analyzer -I/home/asus/Vídeos/COMPILADORES/src/code_generator -I/home/asus/Vídeos/COMPILADORES/src/utils -g -std=gnu++17 -fPIE -o CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.o -c /home/asus/Vídeos/COMPILADORES/src/code_generator/CodeGenerator.cpp",
+  "file": "/home/asus/Vídeos/COMPILADORES/src/code_generator/CodeGenerator.cpp",
+  "output": "src/CMakeFiles/C_SFML_Compiler.dir/code_generator/CodeGenerator.cpp.o"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\code_generator\\SFMLTranslator.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\code_generator\\SFMLTranslator.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/code_generator/SFMLTranslator.cpp",
-  "output": "src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.obj"
+  "directory": "/home/asus/Vídeos/COMPILADORES/build/src",
+  "command": "/usr/bin/g++  -I/home/asus/Vídeos/COMPILADORES/src/lexer -I/home/asus/Vídeos/COMPILADORES/src/parser -I/home/asus/Vídeos/COMPILADORES/src/semantic_analyzer -I/home/asus/Vídeos/COMPILADORES/src/code_generator -I/home/asus/Vídeos/COMPILADORES/src/utils -g -std=gnu++17 -fPIE -o CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.o -c /home/asus/Vídeos/COMPILADORES/src/code_generator/SFMLTranslator.cpp",
+  "file": "/home/asus/Vídeos/COMPILADORES/src/code_generator/SFMLTranslator.cpp",
+  "output": "src/CMakeFiles/C_SFML_Compiler.dir/code_generator/SFMLTranslator.cpp.o"
 },
 {
-  "directory": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/C_SFML_Compiler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\C_SFML_Compiler.dir\\utils\\ErrorHandler.cpp.obj -c C:\\Users\\Zenbook\\Desktop\\CUMPUTER-CIENCE\\CUMPUTER-SCIENCE\\COMPILADORES\\prueba\\COMPILADORES\\src\\utils\\ErrorHandler.cpp",
-  "file": "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/src/utils/ErrorHandler.cpp",
-  "output": "src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.obj"
+  "directory": "/home/asus/Vídeos/COMPILADORES/build/src",
+  "command": "/usr/bin/g++  -I/home/asus/Vídeos/COMPILADORES/src/lexer -I/home/asus/Vídeos/COMPILADORES/src/parser -I/home/asus/Vídeos/COMPILADORES/src/semantic_analyzer -I/home/asus/Vídeos/COMPILADORES/src/code_generator -I/home/asus/Vídeos/COMPILADORES/src/utils -g -std=gnu++17 -fPIE -o CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.o -c /home/asus/Vídeos/COMPILADORES/src/utils/ErrorHandler.cpp",
+  "file": "/home/asus/Vídeos/COMPILADORES/src/utils/ErrorHandler.cpp",
+  "output": "src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.o"
 }
 ]

@@ -1,5 +1,5 @@
-C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/CMakeFiles/edit_cache.dir
-C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/CMakeFiles/rebuild_cache.dir
-C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src/CMakeFiles/C_SFML_Compiler.dir
-C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src/CMakeFiles/edit_cache.dir
-C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build/src/CMakeFiles/rebuild_cache.dir
+/home/asus/Vídeos/COMPILADORES/build/CMakeFiles/edit_cache.dir
+/home/asus/Vídeos/COMPILADORES/build/CMakeFiles/rebuild_cache.dir
+/home/asus/Vídeos/COMPILADORES/build/src/CMakeFiles/C_SFML_Compiler.dir
+/home/asus/Vídeos/COMPILADORES/build/src/CMakeFiles/edit_cache.dir
+/home/asus/Vídeos/COMPILADORES/build/src/CMakeFiles/rebuild_cache.dir

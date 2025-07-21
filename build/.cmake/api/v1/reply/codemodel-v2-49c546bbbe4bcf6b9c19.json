@@ -10,7 +10,7 @@
 					[
 						1
 					],
-					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.10"
@@ -20,7 +20,7 @@
 				},
 				{
 					"build" : "src",
-					"jsonFile" : "directory-src-Debug-c94b7c2814d5a21df52c.json",
+					"jsonFile" : "directory-src-Debug-b6cf2213fc5053b67c22.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.10"
@@ -55,7 +55,7 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "C_SFML_Compiler::@145eef247bfb46b6828c",
-					"jsonFile" : "target-C_SFML_Compiler-Debug-492c31e03feec8c8283c.json",
+					"jsonFile" : "target-C_SFML_Compiler-Debug-a51b5221e8940967473f.json",
 					"name" : "C_SFML_Compiler",
 					"projectIndex" : 0
 				}
@@ -65,12 +65,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES/build",
-		"source" : "C:/Users/Zenbook/Desktop/CUMPUTER-CIENCE/CUMPUTER-SCIENCE/COMPILADORES/prueba/COMPILADORES"
+		"build" : "/home/asus/V\u00eddeos/COMPILADORES/build",
+		"source" : "/home/asus/V\u00eddeos/COMPILADORES"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 8
+		"minor" : 7
 	}
 }
