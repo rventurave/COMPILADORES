@@ -175,4 +175,11 @@ src/CMakeFiles/C_SFML_Compiler.dir/main.cpp.o: \
  /home/asus/Vídeos/COMPILADORES/src/code_generator/SFMLTranslator.h \
  /home/asus/Vídeos/COMPILADORES/src/code_generator/../parser/AST.h \
  /home/asus/Vídeos/COMPILADORES/src/code_generator/../utils/ErrorHandler.h \
- /home/asus/Vídeos/COMPILADORES/src/utils/ErrorHandler.h
+ /home/asus/Vídeos/COMPILADORES/src/utils/ErrorHandler.h \
+ /home/asus/Vídeos/COMPILADORES/src/visual/ASTVisualizer.h \
+ /home/asus/Vídeos/COMPILADORES/src/parser/AST.h \
+ /usr/include/c++/14/unordered_map \
+ /usr/include/c++/14/bits/unordered_map.h \
+ /usr/include/c++/14/bits/hashtable.h \
+ /usr/include/c++/14/bits/hashtable_policy.h \
+ /usr/include/c++/14/bits/enable_special_members.h

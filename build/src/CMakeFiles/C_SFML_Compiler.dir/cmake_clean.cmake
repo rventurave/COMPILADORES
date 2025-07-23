@@ -19,6 +19,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/C_SFML_Compiler.dir/semantic_analyzer/SymbolTable.cpp.o.d"
   "CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.o"
   "CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.o.d"
+  "CMakeFiles/C_SFML_Compiler.dir/visual/ASTVisualizer.cpp.o"
+  "CMakeFiles/C_SFML_Compiler.dir/visual/ASTVisualizer.cpp.o.d"
   "C_SFML_Compiler"
   "C_SFML_Compiler.pdb"
 )

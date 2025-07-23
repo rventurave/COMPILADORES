@@ -92,7 +92,6 @@ void run_c_program_simulation() {
         recordStep("Assigning to ptrP = (&c)", COLOR_VARIABLE_DECL);
         ptrP = (&c);
         updateStackFrame("ptrP", oss_ptrP.str());
-        updateStackFrame("a", "hola");
     }
     recordStep("Exiting function: main", COLOR_RETURN);
     popStackFrame();

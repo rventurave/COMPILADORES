@@ -370,6 +370,30 @@ utils/ErrorHandler.cpp.s:
 	cd /home/asus/Vídeos/COMPILADORES/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/C_SFML_Compiler.dir/build.make src/CMakeFiles/C_SFML_Compiler.dir/utils/ErrorHandler.cpp.s
 .PHONY : utils/ErrorHandler.cpp.s
 
+visual/ASTVisualizer.o: visual/ASTVisualizer.cpp.o
+.PHONY : visual/ASTVisualizer.o
+
+# target to build an object file
+visual/ASTVisualizer.cpp.o:
+	cd /home/asus/Vídeos/COMPILADORES/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/C_SFML_Compiler.dir/build.make src/CMakeFiles/C_SFML_Compiler.dir/visual/ASTVisualizer.cpp.o
+.PHONY : visual/ASTVisualizer.cpp.o
+
+visual/ASTVisualizer.i: visual/ASTVisualizer.cpp.i
+.PHONY : visual/ASTVisualizer.i
+
+# target to preprocess a source file
+visual/ASTVisualizer.cpp.i:
+	cd /home/asus/Vídeos/COMPILADORES/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/C_SFML_Compiler.dir/build.make src/CMakeFiles/C_SFML_Compiler.dir/visual/ASTVisualizer.cpp.i
+.PHONY : visual/ASTVisualizer.cpp.i
+
+visual/ASTVisualizer.s: visual/ASTVisualizer.cpp.s
+.PHONY : visual/ASTVisualizer.s
+
+# target to generate assembly for a file
+visual/ASTVisualizer.cpp.s:
+	cd /home/asus/Vídeos/COMPILADORES/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/C_SFML_Compiler.dir/build.make src/CMakeFiles/C_SFML_Compiler.dir/visual/ASTVisualizer.cpp.s
+.PHONY : visual/ASTVisualizer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -409,6 +433,9 @@ help:
 	@echo "... utils/ErrorHandler.o"
 	@echo "... utils/ErrorHandler.i"
 	@echo "... utils/ErrorHandler.s"
+	@echo "... visual/ASTVisualizer.o"
+	@echo "... visual/ASTVisualizer.i"
+	@echo "... visual/ASTVisualizer.s"
 .PHONY : help
 
 
